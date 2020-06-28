@@ -1,0 +1,110 @@
+body
+{
+	font-family: Helvetica, Arial, sans-serif;
+}
+
+.main 
+{
+  margin-left: 200px; /* Same as the width of the sidenav */
+  margin-right: 200px;
+  padding: 0px 10px;
+  text-align: justify;
+}
+
+h1
+{
+	font-size: 28px;
+}
+
+h2
+{
+	font-size: 25px;
+}
+
+h3
+{
+	font-size: 22px;
+	color: #FF8C00;
+	font-weight: bold;
+}
+
+h4
+{
+	font-size: 19px;
+	color: #DE7300;
+	font-style: italic;
+}
+
+p
+{
+	font-size: 15px;
+}
+
+ul
+{
+	font-size: 15px;
+}
+
+figure {
+	padding: 4px;
+	margin: auto;
+}
+
+img
+{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%;
+}
+
+figcaption {
+	background-color: white;
+	color: black;
+	font-style: italic;
+	padding: 10px;
+	text-align: center;
+}
+
+.firstPerson
+{
+	font-style: italic;
+}
+
+hr.orangeRow
+{
+	border-top: 2px solid orange;
+}
+
+.sidenav 
+{
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #eef;
+  overflow-x: hidden;
+  padding-top: 10px;
+}
+
+.sidenav a 
+{
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 19px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover 
+{
+  color: #d1d1d1;
+}
+
+@media screen and (max-height: 450px) 
+{
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}

@@ -1,0 +1,256 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="StyleSheet.css" rel="stylesheet">
+		
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+		
+	</head>
+	<body>
+		<div class = "sidenav">
+			<a style="font-weight:bold;color:orange;">Navigation</a>
+			<HR class = "orangeRow">
+			<a href = "#introduction">Introduction</a>
+			<a href = "#whatIsASignal">What is a Signal?</a>
+			<a href = "#simplifyingAssumptions">Simplifying Assumptions</a>
+			<a href = "#usefulOnlineResources">Useful Online Resources</a>
+			<a href = "#safetyNotice">Safety Notice</a>
+			<a href = "#importantConcepts">Important Concepts</a>
+			<a href = "#componentsAndTools">Components and Tools</a>
+		</div>
+		
+		<div class = "main">
+			<h1>Understanding And Designing Guitar Effects Pedals</h1>
+			<h2>A Beginners Guide</h2>
+			
+			<HR class = "orangeRow">
+			
+			<div id = "introduction">
+				<h3>Introduction</h3>
+				<p class = "firstPerson">
+					Guitar effects pedals can be ‘black box’ to many that use them - especially if you’ve never been exposed to (or simply don’t care about) electronic circuits. For one reason or another, however, you’ve decided that you want to know how they work, how to use them, or how to make them. To this end, I have put together this guide in the hopes that it might kickstart your learning.
+				</p>
+				<p class = "firstPerson">
+					I have been documenting things as I’ve been learning them myself, and so I hope this becomes a useful tool from the perspective of a fellow beginner! We’ll have a look at how pedals manipulate the output signal from your guitar, what happens when you twist the knobs and flip the switches, and how to design and build your own pedals from scratch.
+				</p>
+				<p class = "firstPerson">
+					Of course, a guide is made to be followed, but I highly encourage you taking some time to experiment. I will talk you through concepts, circuits, and sounds, but at the end of the day, you know what you’re looking for better than I do. Once you understand how the components are interacting with one another, and with your guitar, you should be able to tailor the pedals you pick or the pedals you make to achieve a sound that you’re proud of.
+					I want to clarify that I will be assuming a certain level of understanding throughout this guide. This guide should be suited to you if you have a basic understanding of the following:
+					<ul>
+						<li>Electrical circuit schematics and symbols</li>
+						<li>Fundamental electronics concepts (voltage, current, resistance...)</li>
+						<li>Basic wave theory (frequency, period, amplitude...)</li>
+					</ul>
+				</p>
+				<p class = "firstPerson">
+					If you feel that you aren’t so comfortable in some of these areas, I’d recommend familiarising yourself before moving forwards. Checkout the Useful Online Resources section for some guidance.
+					Now as a quick disclaimer - I’m no expert. I’m itching to learn more about all of this, and I’d love to learn alongside you! If you have any questions, corrections, improvements, jokes: please send them my way at <a href="mailto:rdeh10@googlemail.com" target="_blank">rdeh10@googlemail.com</a>. I’d be very happy to hear from you!
+				</p>
+			</div>
+			
+			<div id = "whatIsASignal">
+				<h3>What is a Signal?</h3>
+				<p>
+					First things first: <b>a ‘signal’ is a voltage</b>, and it is the output from your guitar (so long as it is plugged into something). This signal carries the information about what you’re playing and how you’re playing it. It’s then manipulated by the circuitry inside the guitar, then again by the effects pedal(s), then by the amplifier; and eventually converted into a sound wave by the loudspeaker. At a very high level, everything from plucking an electric guitar string, to some (hopefully expected) sound coming out of the loudspeaker is relatively simple. To keep a lid on things, we’ll make some simplifications [In an appendix, worth doing a full detailed path of this?].
+				</p>
+				<p>
+					The need-to-know points are as follows:
+					<ul>
+						<li><b>When you ‘pluck’ a guitar string, you induce a vibration on the string</b>.</li>
+						<li>This motion sets up a transverse [link] pressure wave through the air that we can hear, even when the guitar is unplugged. At this point, we have an audible sound, but no audio signal to pass to the rest of the circuit.</li>
+						<li>Pickups convert the vibrations of the guitar strings into an audio signal. This might sound like magic, depending on how familiar you are with electromagnetic induction. What you need to know is that <b>as a string vibrates over the pickup, an alternating voltage is created in the guitar circuitry – an electrical representation of the note you’ve just played</b>. The voltage is a sinusoidal oscillation with a frequency equal to the frequency of the guitar string vibration, and an amplitude that relates to how ‘hard’ the string is vibrating [see appendix for detailed explanation – amplitude relates to speed (faraday/lenz) and if amplitude of vibration is higher, speed of nodes is higher at centre point].</li>
+					</ul>
+				</p>
+				<p>
+					Figure 1 illustrates the basic principle. As the string oscillates back and forth, so too does the voltage induced in the pickups. A full understanding of this concept is not necessary. It has been presented here for completeness as we paint the picture of what causes the input to our pedals
+				</p>
+				<figure id = "figure1">
+					<img src = "figures/inducedVoltagePickups.jpg" alt = "Basic pickup operation"></img>
+					<figcaption>Fig. 1 - Illustrating how the motion of a guitar string effects the voltage output of the pickups. <br>Image Credit: <a href = "http://www.electricalfun.com/WorkbenchFun/basic_electric_guitar_circuits.aspx" target="_blank">www.electricalfun.com</a></figcaption>
+				</figure>
+			</div>
+			
+			<div id = "simplifyingAssumptions">
+				<h3>Simplifying Assumptions</h3>
+				<div id = "musicalNoteSimplification">
+					<h4>'Pure' musical note simplification</h4>
+					<p>
+						You may know that each note you play on the guitar is dominated by its fundamental frequency [link], \(f_0\) and is accompanied by higher frequency (higher pitched) overtones (or harmonics [link]) occurring at integer multiples of the fundamental frequency (\(f_n=(n+1)×f_0\)) and are present with a lower amplitude than the fundamental frequency. All these components additively combine to create a single waveform (<a href = "https://en.wikipedia.org/wiki/Superposition_principle#Wave_superposition" target="_blank">superposition</a>). To put it another way, <b>the sound that we hear can be broken up into some number of sinusoidal waveforms of varying frequencies and amplitudes</b>. Figure 2 illustrates this with the bottom plot being a superposition of two waves with frequencies of \(110 Hz\) and \(220 Hz\).
+					</p>
+					<figure id = "figure2">
+						<img src = "figures/additiveComboPlot.png" alt = "The superposition of two waves"></img>
+						<figcaption>Fig. 2 - An illustration of the superposition of two waves</figcaption>
+					</figure>
+					<p>
+					To help visualise all of this, an <a href = "https://www.audacityteam.org/" target="_blank">Audacity</a> analysis of an <a href = "https://archive.org/details/GuitarChord-A/5th_String_A.aiff" target="_blank">open A string recording</a> follows.
+					</p>
+					<p>
+						Figure 3 shows a portion of the waveform of the recording. There is a general periodicity to the signal, though you can clearly see the shape of the wave changing over time. This is a result of the harmonic content of the note changing over time. The duration for 10 cycles of this waveform is measured to be \(T_{10}=0.091s\). Averaging this result over ten cycles gives the duration of a single cycle, \(T={T_{10} \over 10}=0.0091s\). Now, frequency is simply defined as \(f={1 \over T}\), and so the (dominant) frequency of this signal is \(f={1 \over 0.0091}≈110Hz\), as we expect for an open A string.
+					</p>
+					<p>
+						Figure 4 shows the frequency analysis of this same audio signal (using Audacity’s Analyze > Plot Spectrum tool). This may or may not make sense to you, but the key points are that the horizontal axis represents frequency (in \(Hz\)), and the vertical axis represents the magnitude (in \(dB\)). Remember how we said we could split the audio signal into different frequency components - each with different magnitudes? This tool does that for us. In this case, the first 5 peaks are highlighted. They correspond to the fundamental frequency (\(f_0=110Hz\)), followed by the overtones we would expect for this note (\(f_1=220Hz\), \(f_2=330Hz\), \(f_3=440Hz\), \(f_4=550Hz\)).
+					</p>
+					<figure id = "figure3">
+						<img src = "figures/A_String_waveform.png" alt = "An open A string recording, visualised (time domain)"></img>
+						<figcaption>Fig. 3 - The waveform of an open 'A' string recording, as played on an acoustic guitar</figcaption>
+					</figure>
+					<figure id = "figure4">
+						<img src = "figures/A_String_frequencyAnalysis.png" alt = "An open A string recording, visualised (frequency domain)"></img>
+						<figcaption>Fig. 4 - The frequency spectrum of an open 'A' string recording, as played on an acoustic guitar</figcaption>
+					</figure>
+					<p>
+						This might all make you a bit itchy… Especially with an eye on our future of trying to design a circuit that can manipulate this kind of signal in some way. Don’t worry. We will apply the following simplifications that should make things a lot easier:
+						<ul>
+							<li>Assume the audio signal is a perfect sinusoid.</li>
+							<li>Assume the audio signal is of a single (fundamental) frequency, with no overtones. We will use \(f_0=110Hz\) as our default, which corresponds to the open A string.</li>
+							<li>The amplitude of the signal remains constant over time, with no decay.</li>
+						</ul>
+					</p>
+					<p>
+						Figure 5 shows our simplified audio signal. Don’t worry about the much larger amplitude here – it’s simply been plotted with a peak amplitude of 1 for convenience. The frequency is still \(f_0=110Hz\), but we have eliminated the harmonics and any time variance in the signal. This will prove much simpler to analyse, and it turns out that it’s a good enough approximation to allow us to do a good job.
+					</p>
+					<figure id = "figure5">
+						<img src = "figures/Idealised_waveform.png" alt = "An idealised 110Hz waveform"></img>
+						<figcaption>Fig. 5 - A simplified audio signal waveform at \(110Hz\)</figcaption>
+					</figure>
+				</div>
+				<div id = "signalFlowSimplification">
+					<h4>Signal Flow Simplification</h4>
+					<p>
+						Focussing on a single pedal design at a time, we will assume the chain of events is as follows:
+					</p>
+					<p>
+						Guitar Output > Effects Pedal > Amplifier Input
+					</p>
+					<p>
+						We already touched on pickups, but for all that follows, they’re not an important part of the signal chain. The same is true at the other end, and we don’t really care what happens once the signal has entered the amplification stage. However, it is still important to consider the guitar output and the amplifier input as (perhaps surprisingly) they contain components which will actually effect how our pedal sounds, and impose some limits on our designs.
+					</p>
+				</div>
+			</div>
+			
+			<div id = "usefulOnlineResources">
+				<h3>Useful Online Resources</h3>
+				<p>
+					Isn’t it annoying how more words are required to convey more detail? The truth is that this guide could be a stack of pages ten feet tall and there would still be some questions left unanswered, or someone feeling that their curiosity hasn’t yet been exhausted. There are some incredibly valuable resources out there, and hopefully those contained below can function as suitable places to run wild, experiment, do some reading, and ask questions of some truly knowledgeable and helpful people.
+				</p>
+				<p class = "firstPerson">
+					I should clarify that these resources are included as recommendations after my personal experience. These are not paid advertisements and I am not affiliated with these resources in any way.
+				</p>
+				<div id = "everyCircuit">
+					<h4>EveryCircuit</h4>
+					<p>
+						Available <a href = "https://everycircuit.com/app/" target="_blank">online</a> and as an app (<a href = "https://play.google.com/store/apps/details?id=com.everycircuit.free" target="_blank">Android</a> | <a href = "https://apps.apple.com/gb/app/everycircuit/id797157761" target="_blank">Apple</a>), <i>EveryCircuit</i> is a great electronics simulation sandbox that really helps in visualising what’s going on within a circuit. It allows you to build a circuit with common components, each with plenty of flexibility in its parameterisation, and plot the current and voltage values over time at different points in the circuit. Compared with command-based <a href = "https://www.allaboutcircuits.com/textbook/reference/chpt-7/fundamentals-spice-programming" target = "_blank"><i>SPICE</i></a> simulators, <i>EveryCircuit</i> is far easier to use and to understand.  
+					</p>
+					<figure id = "figure6">
+						<img src = "figures/everyCircuitScreenshots.png" alt = "Screenshots of EveryCircuit Online"></img>
+						<figcaption>Fig. 6 - Screenshots of <i>EveryCircuit</i> online</figcaption>
+					</figure>
+					<p>
+						Figure 6 shows two circuits in the online version of <i>EveryCircuit</i>. On the left is a circuit that coverts a binary count into <a href = "https://www.allaboutcircuits.com/technical-articles/gray-code-basics/" target="_blank">Gray Code</a> and on the right is an AC power supply rectification circuit (the plot at the top of the image shows the variations in current over time at two different points in the circuit).
+					</p>
+					<p>
+						Understanding what’s happening in your circuit before you commit it to hardware is very useful. It could save your components from breaking, and it gives you the opportunity to watch and think about what’s actually going on. A simulation tool like <i>EveryCircuit</i> also allows you to vary component parameters whilst the simulation runs so you can see what effect these variations have on your output. It is worth noting that like many simulation tools, <b>the components in the <i>EveryCircuit</i> library are idealised</b>, and so some of the difficult behaviours of the real-world are ignored. We’ll think about some of these when we get around to designing our circuits.
+					</p>
+					<p>
+						If you have no intention of actually building any of the circuits in this guide, you can replicate them in every circuit and plot the input voltage, the output voltage, and maybe some intermediate voltage to see what’s really happening to your guitar signal as it passes through these effects pedals. 
+					</p>
+					<p class = "firstPerson">
+						<b>EveryCircuit is free to use. A one-time $15 (~£12.15 at time of writing) fee can be paid for lifetime access to the full service (a community of publicly shared circuits, a larger workspace, cross-device syncing of your circuits) across all your devices</b>. Personally, I paid the full-access fee 2 years ago and I’ve been very impressed at how useful this tool has been to me.
+					</p>
+				</div>
+				<div id = "allAboutCircuits">
+					<h4>All About Circuits</h4>
+					<p>
+						Most of what follows in this guide will make use of some common components and fundamental electronics concepts. It would be impossible to include all this information whilst keeping the guide satisfactorily concise. However, <a href = "https://www.allaboutcircuits.com/" target="_blank"><i>All About Circuits</i></a> is dedicated to the quality communication of these electronics fundamentals. The <a href = "https://www.allaboutcircuits.com/textbook/" target="_blank"><i>textbooks</i></a> area covers a wide variety of tutorials from beginner-level understanding, to more advanced stuff. It’s all presented in an easy to follow manner, and in combination with the provided worksheets and video tutorials, it’s the place to be if you fancy brushing up on your electronics understanding.
+					</p>
+					<figure id = "figure7">
+						<img src = "figures/allAboutCircuitsScreenshots.png" alt = "Screenshots of All About Circuits Online"></img>
+						<figcaption>Fig. 7 - Screenshots of some of the All About Circuits online 'textbook' resources</figcaption>
+					</figure>
+					<p>
+						Figure 7 shows a preview of some of the content of the textbook on the left, and a preview of a page on operational amplifier feedback on the right.
+					</p>
+					<p>
+						The forums are also handy. If you’re struggling with something or just want a deeper understanding, you can just pop the question in the <a href = "https://forum.allaboutcircuits.com/" target="_blank">forums</a> and a community of experienced and friendly people will try their best to help you out. <a class = "firstPerson">Just yesterday I was having some trouble with a circuit that I’d built using an operational amplifier (yes, they are important components! We’ll come back to them later). After a long hard search for an answer online (not helped by the fact that I really didn’t know what to search for), I asked nicely for some help in the forums. <b>In less than an hour of posting</b>, someone pointed me to a webpage explaining exactly what my issue was!</a>
+					</p>
+					<p>
+						The website also offers technical articles, giveaways, datasheets – it really lives up to its name!
+					</p>
+				</div>
+				<div id = "diyStompBoxForum">
+					<h4>DIY Stomp Box Forum</h4>
+					<p>
+						The <i>All About Circuits</i> forums are useful for general electronics information. A more specialised forum is the <a href = "https://www.diystompboxes.com/smfforum/index.php" target="_blank"><i>DIY Stomp Boxes forum</i></a>. As the name suggests, this is a community of those making their own effects pedals, and so if you have any questions specific to your builds, here is the place to ask them! It also provides a platform for those looking to show off what they’re making, and so it’s also a good place to look for inspiration and see just how much is possible.
+					</p>
+					<p>
+						Their <a href = "https://aronnelson.com/diywiki/index.php/Main_Page" target="_blank">Wiki</a> page is also full of helpful resources. It includes information on debugging problems you might encounter, example schematics, sound clips of various pedals – go and have a browse!
+					</p>
+					<p>
+						Figure 8 shows just a small section of the many boards on this forum (<a class = "firstPerson">note: some of these might look quite scary and advanced – I’ve personally had a really good experience fielding beginner questions. The forum contains helpful people of all abilities, and so it’s a great place to ask anything!</a>).
+					</p>
+					<figure id = "figure8">
+						<img src = "figures/DIYStompBoxesScreenshot.png" alt = "Screenshot of DIY Stomp Boxes forum online"></img>
+						<figcaption>Fig. 8 - A screenshot of the 'Building Your Own Stompbox' board on DIYstompboxes.com</figcaption>
+					</figure>
+				</div>
+			</div>
+			
+			<div id = "safetyNotice">
+				<h3>Safety Notice</h3>
+			</div>
+			
+			<div id = "importantConcepts">
+				<h3>Important Concepts</h3>
+				<p>
+					Whilst this guide assumes a certain level of knowledge, there are some fundamental concepts that are really common and important in guitar effects pedals, and it's worth making sure we're all on the same page. At the end of this section, we'll disect the <i>MXR Distortion Plus</i>, and identify these key concepts. This will help us understand how this (and other pedals) do what they do to our playing!
+				</p>
+				<h4>Active or Passive?</h4>
+					<p>
+						This one is nice and simple. The circuits we'll look at will have both active and passive components. 
+					</p>
+					<p>
+						A passive component is one that will consume electrical power, and so cannot produce any additional power of its own. Typically this just means that it does not have its own power supply (e.g. a resistor or an inductor).
+					</p>
+					<p>
+						An active component has a power supply of its own (see <a href = "https://www.allaboutcircuits.com/textbook/semiconductors/chpt-8/introduction-operational-amplifiers/" target = "_blank">operational amplifiers</a> for example). This means that it can draw power from this supply and 'inject' power into the circuit. The output of an op-amp can be much more powerful than it's input.
+					</p>
+				<h4>Impedance</h4>
+					<p>
+						Hopefully you have a decent grasp of <a href = "https://www.allaboutcircuits.com/textbook/direct-current/chpt-1/resistance/" target="_blank"><b>resistance</b></a>. <i>Impedance</i> is admittedly a little scarier (remember those imaginary numbers you thought you'd never need...). But for our purposes, the core takeaway is that <b>impedance is the effective resistance of a component to alternating current</b>. Remember how we said the vibration in the guitar string causes an alternating voltage level in your guitar circuitry? Perhaps it's obvious that this alternating voltage force pushes alternating current through the circuit, and so the impedance is a very important thing to understand and quantify. 
+					</p>
+					<p>
+						Impedance is a combination of <i>resistance</i> and <i>reactance</i>. Resistors are our old friends! Of course, <i>resistors</i> are responsible for the <i>resistance</i> component of a circuit's impedance. 
+					</p>
+					<p>
+						<i>Reactance</i> is just a little bit messier. <i>Reactance</i> is the 'effective resistance' that is offered by components like <i>capacitors</i> and <i>inductors</i>. The reason that <i>reactance</i> isn't so friendly is that <b>reactance varies with frequency</b>. Don't worry too much about the maths right now, but it might help your understanding if you look at how a capacitors reactance is defined: \[X_C = {1 \over 2 \times \pi \times f \times C}\]
+					</p>
+					<p>
+						A higher <i>reactance</i>, \(X\), is a higher <i>effective resistance</i>. <b>So for any particular capacitor, (characterised by it's <i>capacitance</i>, \(C\)), the reactance gets higher as the frequency, \(f\), of the alternating current decreases</b>. 
+				    </p>
+					<p>
+					    If we have a \(10 \mu F\) capacitor (thats \({10 \over 1,000,000} F\)), then at the height of the human hearing range - \(20kHz\) - the reactance will be \(X_C \approx 0.8 \Omega \) - we could almost pretend the capacitor is just a bit of wire!
+					</p>
+					<p>
+						A perfect direct current will not vary over time - it has a frequency of \(f=0Hz\). If we put this into our reactance equation, we get a divide-by-zero error (whoops!), but we can say that the reactance is essentially infinite for a direct current, as if there is an open circuit where the capacitor is - <b>a capacitor will 'block' direct currents</b>.
+					</p>
+					<p>
+						Inductors are essentially the opposite in this sense. Their reactance increases as the frequency increases.
+					</p>
+				<h4>Source and Load Impedance</h4>
+					<p>
+						Now that we have some understanding of impedance, we have to touch on a <b>VERY IMPORTANT THING</b>. As well as the impedance that exists all around our pedal circuitry, <b>we must also consider what is happening at the output of our guitar, and at the input of out amplifier!!!</b>
+					</p> 
+				<h4>Voltage Dividers</h4>
+				<h4>Dissecting a Pedal</h4>
+			</div>
+			
+			<div id = "componentsAndTools">
+				<h3>Components and Tools</h3>
+			</div>
+			
+		</div>
+		
+	</body>
+</html>
