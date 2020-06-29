@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="StyleSheet.css" rel="stylesheet">
+		
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+		
+	</head>
+	<body>
+		<div class = "sidenav">
+			<a style="font-weight:bold;color:orange;">Navigation</a>
+			<HR class = "orangeRow">
+			<a href = "introduction.html">Introduction</a>
+			<a href = "whatIsASignal.html">What is a Signal?</a>
+			<a href = "simplifyingAssumptions.html">Simplifying Assumptions</a>
+			<a href = "usefulOnlineResources.html">Useful Online Resources</a>
+			<a href = "safetyNotice.html">Safety Notice</a>
+			<a href = "importantConcepts.html">Important Concepts</a>
+			<a href = "componentsAndTools.html">Components and Tools</a>
+		</div>
+		
+		<div id = "importantConcepts">
+			<h3>Important Concepts</h3>
+			<p>
+				Whilst this guide assumes a certain level of knowledge, there are some fundamental concepts that are really common and important in guitar effects pedals, and it's worth making sure we're all on the same page. At the end of this section, we'll disect the <i>MXR Distortion Plus</i>, and identify these key concepts. This will help us understand how this (and other pedals) do what they do to our playing!
+			</p>
+			<h4>Active or Passive?</h4>
+				<p>
+					This one is nice and simple. The circuits we'll look at will have both active and passive components. 
+				</p>
+				<p>
+					A passive component is one that will only consume electrical power, and cannot produce any additional power of its own. Typically this just means that it does not have its own power supply (e.g. a resistor or an inductor).
+				</p>
+				<p>
+					An active component has a power supply of its own (see <a href = "https://www.allaboutcircuits.com/textbook/semiconductors/chpt-8/introduction-operational-amplifiers/" target = "_blank">operational amplifiers</a> for example). This means that it can draw power from this supply and 'inject' power into the circuit. The output of an op-amp can be much more powerful than it's input.
+				</p>
+			<h4>Impedance</h4>
+				<p>
+					Hopefully you have a decent grasp of <a href = "https://www.allaboutcircuits.com/textbook/direct-current/chpt-1/resistance/" target="_blank"><b>resistance</b></a>. <i>Impedance</i> is admittedly a little scarier (remember those imaginary numbers you thought you'd never need...). But for our purposes, the core takeaway is that <b>impedance is the effective resistance of a component to alternating current</b>. Remember how we said the vibration in the guitar string causes an alternating voltage level in your guitar circuitry? Perhaps it's obvious that this alternating voltage force pushes alternating current through the circuit, and so the impedance is a very important thing to understand and quantify. 
+				</p>
+				<p>
+					Impedance is a combination of <i>resistance</i> and <i>reactance</i>. Resistors are our old friends! Of course, <i>resistors</i> are responsible for the <i>resistance</i> component of a circuit's impedance. 
+				</p>
+				<p>
+					<i>Reactance</i> is just a little bit messier. <i>Reactance</i> is the 'effective resistance' that is offered by components like <i>capacitors</i> and <i>inductors</i>. The reason that <i>reactance</i> isn't so friendly is that <b>reactance varies with frequency</b>. Don't worry too much about the maths right now, but it might help your understanding if you look at how a capacitors reactance is defined: \[X_C = {1 \over 2 \times \pi \times f \times C}\]
+				</p>
+				<p>
+					A higher <i>reactance</i>, \(X\), is a higher <i>effective resistance</i>. <b>So for any particular capacitor, (characterised by it's <i>capacitance</i>, \(C\)), the reactance gets higher as the frequency, \(f\), of the alternating current decreases</b>. 
+				</p>
+				<p>
+					If we have a \(10 \mu F\) capacitor (thats \({10 \over 1,000,000} F\)), then at the height of the human hearing range - \(20kHz\) - the reactance will be \(X_C \approx 0.8 \Omega \) - we could almost pretend the capacitor is just a bit of wire!
+				</p>
+				<p>
+					A perfect direct current will not vary over time - it has a frequency of \(f=0Hz\). If we put this into our reactance equation, we get a divide-by-zero error (whoops!), but we can say that the reactance is essentially infinite for a direct current, as if there is an open circuit where the capacitor is - <b>a capacitor will 'block' direct currents</b>.
+				</p>
+				<p>
+					Inductors are essentially the opposite in this sense. Their reactance increases as the frequency increases.
+				</p>
+			<h4>Source and Load Impedance</h4>
+				<p>
+					Now that we have some understanding of impedance, we have to touch on a <b>VERY IMPORTANT THING</b>. As well as the impedance that exists all around our pedal circuitry, <b>we must also consider what is happening at the output of our guitar, and at the input of out amplifier!!!</b>
+				</p> 
+			<h4>Voltage Dividers</h4>
+			<h4>Dissecting a Pedal</h4>
+		</div>
+	
+	</body>
+</html>
