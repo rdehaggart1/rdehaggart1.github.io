@@ -2,15 +2,82 @@ body
 {
 	font-family: Helvetica, Arial, sans-serif;
 	background-color: #eee;
+	margin: 0;
+	padding: 0;
+}
+
+.sidenav 
+{
+  height: 100%;
+  float: left;
+  position: sticky;
+  width: 200px;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #eef;
+  overflow-x: hidden;
+  padding-top: 10px;
+}
+
+.sidenav a 
+{
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 19px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover 
+{
+  color: #d1d1d1;
+}
+
+@media screen and (max-height: 450px) 
+{
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }
 
 .main 
 {
+	margin-top: 0px;
 	margin-left: 300px; /* Same as the width of the sidenav */
 	margin-right: 100px; 
     padding: 10px 50px 50px 50px;
 	text-align: justify;
 	background-color: #fff;
+}
+
+.header
+{
+	box-shadow: 0px 0px 5px #27272780;
+	-webkit-box-shadow: 0px 0px 5px #27272780;
+	-moz-box-shadow: 0px 0px 5px #27272780;
+	position: relative;
+	z-index: 999999;
+	background-color: white;
+	text-align: center;
+	height: 100px;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.headerImg
+{
+	width: 250px;
+	height: 100px;
+	float: left;
+}
+
+.header h3
+{
+	margin: 0;
+	padding: 20px;
+	text-align: center;
+	color: #FF6A00;
+	font-size: 50px;
 }
 
 /* NAVIGATION BUTTONS */
@@ -154,37 +221,4 @@ figcaption {
 hr.orangeRow
 {
 	border-top: 2px solid orange;
-}
-
-.sidenav 
-{
-  height: 100%;
-  width: 200px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #eef;
-  overflow-x: hidden;
-  padding-top: 10px;
-}
-
-.sidenav a 
-{
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 19px;
-  color: #818181;
-  display: block;
-}
-
-.sidenav a:hover 
-{
-  color: #d1d1d1;
-}
-
-@media screen and (max-height: 450px) 
-{
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
 }
