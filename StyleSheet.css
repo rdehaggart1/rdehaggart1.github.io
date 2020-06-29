@@ -84,7 +84,7 @@ body
 .contactTab
 {
 	position: absolute;
-	top: 60%;
+	top: 65%;
 	right: 5%;
 	margin: 0;
 	padding: 10px;
@@ -97,10 +97,14 @@ body
 	font-size: 15px;
 	
 	border-top: solid #FF6A00;
-	border-radius: 1px;
+	border-radius: 2px;
 	display: inline-block;
 	
 	cursor: pointer;
+}
+.contactTab:hover
+{
+	background-color: #eee;
 }
 
 
