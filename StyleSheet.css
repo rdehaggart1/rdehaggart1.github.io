@@ -1,14 +1,17 @@
 body
 {
 	font-family: Helvetica, Arial, sans-serif;
+	background-color: #eee;
 }
 
 .main 
 {
-  margin-left: 200px; /* Same as the width of the sidenav */
-  margin-right: 200px;
-  padding: 0px 10px;
+  margin-left: 300px; /* Same as the width of the sidenav */
+  margin-right: 100px;
+  margin-bottom: 300px;
+  padding: 10px 10px;
   text-align: justify;
+  background-color: #fff;
 }
 
 h1
