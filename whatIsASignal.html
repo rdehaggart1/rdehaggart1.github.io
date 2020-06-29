@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="StyleSheet.css" rel="stylesheet">
+		
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+		
+	</head>
+	<body>
+		<div class = "sidenav">
+			<a style="font-weight:bold;color:orange;">Navigation</a>
+			<HR class = "orangeRow">
+			<a href = "introduction.html">Introduction</a>
+			<a href = "whatIsASignal.html">What is a Signal?</a>
+			<a href = "simplifyingAssumptions.html">Simplifying Assumptions</a>
+			<a href = "usefulOnlineResources.html">Useful Online Resources</a>
+			<a href = "safetyNotice.html">Safety Notice</a>
+			<a href = "importantConcepts.html">Important Concepts</a>
+			<a href = "componentsAndTools.html">Components and Tools</a>
+		</div>
+		
+		<div class = "main">
+			<h1>Understanding And Designing Guitar Effects Pedals</h1>
+			<h2>A Beginners Guide</h2>
+			
+			<HR class = "orangeRow">
+			
+			<div id = "whatIsASignal">
+				<h3>What is a Signal?</h3>
+				<p>
+					First things first: <b>a ‘signal’ is a voltage</b>, and it is the output from your guitar (so long as it is plugged into something). This signal carries the information about what you’re playing and how you’re playing it. It’s then manipulated by the circuitry inside the guitar, then again by the effects pedal(s), then by the amplifier; and eventually converted into a sound wave by the loudspeaker. At a very high level, everything from plucking an electric guitar string, to some (hopefully expected) sound coming out of the loudspeaker is relatively simple. To keep a lid on things, we’ll make some simplifications [In an appendix, worth doing a full detailed path of this?].
+				</p>
+				<p>
+					The need-to-know points are as follows:
+					<ul>
+						<li><b>When you ‘pluck’ a guitar string, you induce a vibration on the string</b>.</li>
+						<li>This motion sets up a transverse [link] pressure wave through the air that we can hear, even when the guitar is unplugged. At this point, we have an audible sound, but no audio signal to pass to the rest of the circuit.</li>
+						<li>Pickups convert the vibrations of the guitar strings into an audio signal. This might sound like magic, depending on how familiar you are with electromagnetic induction. What you need to know is that <b>as a string vibrates over the pickup, an alternating voltage is created in the guitar circuitry – an electrical representation of the note you’ve just played</b>. The voltage is a sinusoidal oscillation with a frequency equal to the frequency of the guitar string vibration, and an amplitude that relates to how ‘hard’ the string is vibrating [see appendix for detailed explanation – amplitude relates to speed (faraday/lenz) and if amplitude of vibration is higher, speed of nodes is higher at centre point].</li>
+					</ul>
+				</p>
+				<p>
+					Figure 1 illustrates the basic principle. As the string oscillates back and forth, so too does the voltage induced in the pickups. A full understanding of this concept is not necessary. It has been presented here for completeness as we paint the picture of what causes the input to our pedals
+				</p>
+				<figure id = "figure1">
+					<img src = "figures/inducedVoltagePickups.jpg" alt = "Basic pickup operation"></img>
+					<figcaption>Fig. 1 - Illustrating how the motion of a guitar string effects the voltage output of the pickups. <br>Image Credit: <a href = "http://www.electricalfun.com/WorkbenchFun/basic_electric_guitar_circuits.aspx" target="_blank">www.electricalfun.com</a></figcaption>
+				</figure>
+			</div>
+			
+		</div>
+		
+	</body>
+</html>
