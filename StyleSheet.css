@@ -73,14 +73,36 @@ body
 
 .header h3
 {
-	margin: 0;
-	padding-left: 300px;
-	padding-top: 20px;
-	padding-bottom: 20px;
-	padding-right: 100px;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	margin-left: 300px;
+	margin-right: 100px;
 	color: #FF6A00;
 	font-size: 50px;
 }
+
+.contactTab
+{
+	position: absolute;
+	top: 60%;
+	right: 5%;
+	margin: 0;
+	padding: 10px;
+	
+	color: #FF6A00;
+	background-color: white;
+	
+	text-decoration: none;
+	text-align: center;
+	font-size: 15px;
+	
+	border-top: solid #FF6A00;
+	border-radius: 1px;
+	display: inline-block;
+	
+	cursor: pointer;
+}
+
 
 /* NAVIGATION BUTTONS */
 .navButton
