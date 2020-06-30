@@ -5,5 +5,5 @@ document.write("<a href = \"usefulOnlineResources.html\">Useful Online Resources
 document.write("<a href = \"safetyNotice.html\">Safety Notice</a>");
 document.write("<a href = \"whatIsASignal.html\">What is a Signal?</a>");
 document.write("<a href = \"simplifyingAssumptions.html\">Simplifying Assumptions</a>");
-document.write("<a href = \"importantConcepts.html\">Important Concepts</a>");
 document.write("<a href = \"componentsAndTools.html\">Components and Tools</a>");
+document.write("<a href = \"importantConcepts.html\">Important Concepts</a>");

@@ -19,72 +19,161 @@
 			<HR class = "orangeRow">
 			
 			<div id = "componentsAndTools">
+				
 				<h3>Components and Tools</h3>
 				<p>
-					Before you can start putting your own pedals together, you'll need some components! This page will help guide you through some of the most important components, what they're used for, and where to find them. 
-				</p>
-				<h4>Components</h4>
-				<h5>Jack Sockets</h5>
-				<p>
-					More important than any other component is the jack socket. <b>Boring</b>, yes. You can wire up a nice fancy boutique pedal with a load of clever circuitry and a pretty enclosure, but it won't do a damn thing if you can plug it in to anything!
-				</p>
-				<p>
-					Jack plugs and sockets are pretty unremarkable. They just provide a mechanism to pass the audio signal into the pedal circuitry. The plug/socket combos we're interested in are \(6.35mm\) (\({1 \over 4} inch\)) in diameter. They come in two flavours: <i>mono</i> (also known as <i>2-pole</i> or <i>TS</i>), and <i>stereo</i> (<i>3-pole</i> or <i>TRS</i>). You might already know that <i>mono</i> means that our audio signal has a single channel (if you listened to it through a pair of headphones, both ears would be hearing the same single track), and <i>stereo</i> means there are two channels (each ear would hear its own track). Most standard guitar cables and connecters are <i>mono</i> and so we'll focus on this variety.
-				</p>
-				<p>
-					The image below illustrates the difference between a 2-pole and 3-pole jack. These names come from the number of conductors on the jack plug, where each conductor is separated by a slice of insulation (the black lines on the plug). The <i>Tip</i> and the <i>Ring</i> carry the audio signal through our effects loop - they are the 'hot' connections. The <i>Sleeve</i> is connected to <i>ground</i> in each circuit. If you imagine we had a perfect AC source, we could connect the positive terminal to the <i>Tip</i> and the negative terminal to the <i>Sleeve</i> of a mono jack-socket, and then plug our lead in and feed this signal out to some other circuit.
-				</p>
-				<figure id = "jackPlugDiagram">
-					<img src = "figures/jackPlugDiagram.png" alt = "mono and stereo jack plug anatomy"></img>
-					<figcaption>The anatomy of mono and stereo jack plugs</figcaption>
-				</figure>
-				
-				<h5>Wires</h5>
-				<p>
-					Again, a little dull... sorry. We'll get to the <i>actual</i> components soon enough. But of course, without wires, you're not going to get very far, so we should touch on them quickly.
+					Before you can start putting your own pedals together, you'll need some components! This page will help guide you through some of the most important components, what they're used for, and where to find them. After we've talked about the components, we'll touch on some tools - most of which are optional - that might help in one way or another, depending on your intentions and your level of interest.
 				</p>
 				
-				<h5>Resistors</h5>
-				<p>
+				<div id = "contentsContainer">
+					<h4>Page Contents</h4>
+					<ul class = "contents">
+						<li><a href = "#components">Components</a></li>
+							<ul>
+								<li><a href = "#jackSockets">Jack Sockets</a></li>
+								<li><a href = "#wires">Wires</a></li>
+								<li><a href = "#resistors">Resistors</a></li>
+								<li><a href = "#potentiometers">Potentiometers</a></li>
+								<li><a href = "#capacitors">Capacitors</a></li>
+								<li><a href = "#switches">Switches</a></li>
+								<li><a href = "#diodes">Diodes</a></li>
+								<li><a href = "#transistors">Transistors</a></li>
+								<li><a href = "#operationalAmplifiers">Operational Amplifiers</a></li>
+							</ul>
+						<li><a href = "#tools">Tools</a></li>
+					</ul>
+				</div>
+				
+				<div id = "components">
+					<h4>Components</h4>
 					
-				</p>
-				
-				<h5>Capacitors</h5>
-				<p>
+					<div id = "jackSockets">
+						<h5>Jack Sockets</h5>
+						<p>
+							More important than any other component is the jack socket. Now that's no fun! Well yes, that's true, but if you can't connect in to your nice fancy boutique pedal with a load of clever circuitry and a pretty enclosure, it won't do a damn thing!
+						</p>
+						<p>
+							Jack plugs and sockets are pretty unremarkable. They just provide a mechanism to pass the audio signal into the pedal circuitry. The plug/socket combos we're interested in are \(6.35mm\) (\({1 \over 4} inch\)) in diameter. They come in two flavours: <i>mono</i> (also known as <i>2-pole</i> or <i>TS</i>), and <i>stereo</i> (<i>3-pole</i> or <i>TRS</i>). You might already know that <i>mono</i> means that our audio signal has a single channel (if you listened to it through a pair of headphones, both ears would be hearing the same single track), and <i>stereo</i> means there are two channels (each ear would hear its own track). <b>Most standard guitar cables and connecters are <i>mono</i> and so we'll focus on this variety</b>. <i>Note: there are some <a href = "http://www.generalguitargadgets.com/pdf/ggg_sw_battery.pdf" target = "_blank">interesting</a> ways to make use of a TRS socket, even with a mono plug!</i>
+						</p>
+						<p>
+							The image below illustrates the difference between a 2-pole and 3-pole jack. These names come from the number of conductors on the jack plug, where each conductor is separated by a slice of insulation (the black lines on the plug). <b>The <i>Tip</i> and the <i>Ring</i> conductors carry the audio signal</b> through our effects loop - they are the 'hot' connections. <b>The <i>Sleeve</i> is connected to <i>ground</i></b> in each circuit. If you imagine we had an AC signal generator, we could connect the positive terminal to the <i>Tip</i> and the negative terminal to the <i>Sleeve</i> of a mono jack-socket, and then plug our lead in and feed this signal out to some other circuit.
+						</p>
+						<p>
+							We'll look at how to wire a jack-socket up in our first pedal circuit. <a href = "https://uk.rs-online.com/web/p/jack-plugs-sockets/1115768" target = "_blank">Here</a> are some 2-pole jack sockets that will fit nicely into a <a href = "#breadboard">breadboard</a>. 
+						</p>
+						<figure id = "jackPlugDiagram">
+							<img src = "figures/jackPlugDiagram.png" alt = "mono and stereo jack plug anatomy"></img>
+							<figcaption>The anatomy of mono and stereo jack plugs</figcaption>
+						</figure>
+					</div>
 					
-				</p>
-				
-				<h5>Switches</h5>
-				<p>
+					<div id = "wires">
+						<h5>Wires</h5>
+						<p>
+							Again, a little dull... sorry. We'll get to the <i>actual</i> components soon enough. But of course, without wires, you're not going to get very far, so we should touch on them quickly.
+						</p>
+						<p>
+							In the world of electronics, there really are a <i>bunch</i> of different types of wires. Luckily for our application, we can focus on just one or two. Wires can either be <i>single-core</i> or <i>multi-core</i>. In both of these varieties, the cores can contain <i>solid</i> or <i>stranded</i> conductors. <b>We'll be working with <i>single-core</i> wires with a <i>solid</i> conductor core</b>.
+						</p>
+						<p>
+							We don't need <i>multi-core</i> wire as we're just passing one signal around a small circuit. We're using a <i>solid</i> conductor core becuase it's far easier to use with our prototyping boards (it's the difference between trying to thread an old, frayed shoelace; or a brand new one with the aglet still intact). <i>Stranded</i> core wires are much more flexible, and so less likely to fracture, but this isn't an application that demands flexibility so we can deal with a more rigid wire. 
+						</p>
+						<p>
+							The diameter of the conductor and the total diameter of the wire (including insulation) are variable, and you can find out more about the American Wire Gauge (AWG) standard <a href = "https://www.engineeringtoolbox.com/wire-gauges-d_419.html" target = "_blank">here</a>. <b>We're most interested in AWG 20 to AWG 24</b> - these fit snugly into the holes in our prototyping boards, and the current ratings are way higher than we will need.
+						</p>
+						<p>
+							Check <a href = "https://uk.rs-online.com/web/c/cables-wires/wire-single-core-cable/hookup-equipment-wire/?searchTerm=rs%20hook%20up%20wire&redirect-relevancy-data=636F3D3126696E3D4931384E53656172636847656E65726963266C753D656E266D6D3D6D61746368616C6C7061727469616C26706D3D5E2E2A2426706F3D31333326736E3D592673723D2673743D43415443485F414C4C5F44454641554C542673633D592677633D4E4F4E45267573743D727320686F6F6B2075702077697265267374613D727320686F6F6B207570207769726526&r=f&searchHistory=%7B%22enabled%22:true%7D&applied-dimensions=4294289620,4294548898,4293428662,4294329186,4294316401,4294349836" target = "_blank">these</a> out - they should do the trick!
+						</p>
+					</div>
 					
-				</p>
-				
-				<h5>Transistors</h5>
-				<p>
+					<div id = "resistors">
+						<h5>Resistors</h5>
+						<p>
+							Wow! Actual components! Alright calm down, they're just resistors... That said, they are perhaps the most common components in all electrical applications. Every circuit that we look at will contain resistors (or <a href = "#potentiometers">potentiometers</a> - a type of resistor).
+						</p>
+						<p>
+							A quick refresher: resistors resist the flow of current. Voltage is the force that 'pushes' current around our circuits. If we impose several restrictions to this flow, more of that pushing force is going to be needed to overcome the 'tighter' restriction - this is what is called the 'voltage drop', or the voltage between the legs of a component. You might be familiar with <i>Ohm's Law</i>, \(V=I \times R\), which simply states that the voltage difference, \(V\) across the two legs of a resistor is directly proportional to the current flow \(I\) through the resistor, with the resistance \(R\) being the constant of proportionality. Resistors convert electrical energy to heat. This might seem undesirable, but we can use resistors as tools to manipulate our signal in some really useful ways. 
+						</p>
+						<p>
+							We'll see resistors used for several purposes - some of which will be covered in detail on the <a href = "importantConcepts.html" target = "_blank">'Important Concepts'</a> page. <b>In a typical circuit, we might see resistors used as <i>voltage dividers</i>, <i>pull-down resistors</i>, <i>current-limiting resistors</i> or <i>frequency filters</i></b>.
+						</p>
+						<p>
+							Resistors come in all sorts of sizes (see the below <i>resistor colour chart</i>). This is where we start seeing the opportunity for experimentation. With each of the circuits we look at, it's worth trying to swap some resistors out for different sizes, and seeing what affect that has on the output.
+						</p>
+						<figure id = "resistorChart">
+							<img src = "figures/resistorChart.png" alt = "colour-coded resistances"></img>
+							<figcaption>Determining the resistance of a resistor by colour-code</figcaption>
+						</figure>
+					</div>
 					
-				</p>
-				
-				<h5>Operational Amplifiers</h5>
-				<p>
+					<div id = "potentiometers">
+						<h5>Potentiometers</h5>
+						<p>
+							
+						</p>
+					</div>
 					
-				</p>
+					<div id = "capacitors">
+						<h5>Capacitors</h5>
+						<p>
+							
+						</p>
+					</div>
+					
+					<div id = "switches">
+						<h5>Switches</h5>
+						<p>
+							
+						</p>
+					</div>
+					
+					<div id = "diodes">
+						<h5>Diodes</h5>
+						<p>
+							
+						</p>
+					</div>
+					
+					<div id = "transistors">
+						<h5>Transistors</h5>
+						<p>
+							
+						</p>
+					</div>
+					
+					<div id = "operationalAmplifiers">
+						<h5>Operational Amplifiers</h5>
+						<p>
+							
+						</p>
+					</div>
+			
+				</div>
 				
-				<h5>Diodes</h5>
-				
-				<h4>Tools</h4>
-				<h5>Breadboard</h5>
-				<h5>Stripboard</h5>
-				<h5>Wire Strippers</h5>
-				<h5>Soldering Equipment</h5>
-				<h5>Multimeter</h5>
-				<h5>Maker Board</h5>
+				<div id = "tools">
+					<h4>Tools</h4>
+					
+					<div id = "breadboard">
+						<h5>Breadboard</h5>
+						<p>
+						
+						</p>
+					</div>
+					
+					<h5>Stripboard</h5>
+					<h5>Wire Strippers</h5>
+					<h5>Soldering Equipment</h5>
+					<h5>Multimeter</h5>
+					<h5>Maker Board</h5>
+				</div>
 				
 			</div>
 			
 		</div>
 		
 		<div class = "navButton">
-			<a href = "importantConcepts.html" class = "button button-prev"><span>Prev | Important Concepts</span></a>
+			<a href = "importantConcepts.html" class = "button button-next"><span>Next | Important Concepts</span></a>
+			<a href = "simplifyingAssumptions.html" class = "button button-prev"><span>Prev | Simplifying Assumptions</span></a>
 		</div>
 	</body>
 </html>
