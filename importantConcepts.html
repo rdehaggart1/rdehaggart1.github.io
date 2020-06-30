@@ -27,6 +27,25 @@
 				
 				<div id = "grounding">
 					<h4>Grounding</h4>
+					<p style = "text-align: center">
+						<b>Correctly grounding your circuits is important. Incorrect grounding can create a shock hazard. Please check your circuits thoroughly to make sure the grounding is adequate</b>.
+					</p>
+					<p>
+						You're plugged in and ready to go, but there's an annoying buzzing noise that stops when you touch a metal part on the guitar body. If your parents paid extra to install that spectrum analyser in their child as the kind doctor recommended, you'll know that it's a \(50Hz\) or \(60Hz\) buzz. That's a <i>grounding issue</i>, my friend. What it means is that you have what's called a <i>ground loop</i> - when two parts of a circuit are supposed to be at the same electrical potential (\(0V\) in this case), but they're not. Often, audio equipment that is connected to the mains (an amplifier or effects pedal) will share the signal ground with the mains ground, and this means that the ground loop will actually pull the 'mains hum' into the signal, and amplify it (buzzzzz).
+					</p>
+					<p>
+						Grounding issues are pretty easy to avoid, however. If ground is just a point with zero electrical potential, we just need to find something conductive with (theoretically) zero electrical potential that will not easily charge to some non-zero potential once current starts flowing in the circuit. It turns out that really any conveniently placed decent-sized solid peices of metal will do the trick nicely. For example, let's take a look inside a guitar for a second:
+					</p>
+					<figure id = "grounding">
+						<img src = "figures/grounding.png" alt = "grounding inside a guitar"></img>
+						<figcaption>The electronics cavity of a guitar, with the grounding highlighted</figcaption>
+					</figure>
+					<p>
+						In circle (\(1.\)), you'll see the blob of solder mounted on the metallic body of a potentiometer. In circle (\(2.\)), you can (kind of) see a wire that dissapears away into the body of the guitar. This wire will connect to the bridge, or some other large piece of metal on the body. Both of these methods are as discussed above - <b>connect the circuit ground to large pieces of metal that will not easily increase their potential once current begins to flow</b>. 
+					</p>
+					<p>
+						In our circuits, potentiometers will be fairly common, and so we'll use those where possible. If we house our pedals in metal enclosures, we can connect to our chassis for grounding. If neither of these options are available, we should still be ok. We're still connected to the amplifier and the guitar grounds via the jack sockets and the jack plug <i>Sleeve</i> connections, and so as long as they've been grounded well, we should be alright... Wherever possible though, <b>please properly ground your circuits!!</b>
+					</p>
 				</div>
 				
 				
