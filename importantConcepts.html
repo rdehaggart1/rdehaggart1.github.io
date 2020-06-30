@@ -100,10 +100,28 @@
 				
 				<div id = "currentLimitingResistors">
 					<h4>Current-limiting Resistors</h4>
+					<p>
+						Some components are especially sensitive.
+					</p>
 				</div>
 
 				<div id = "pulldownResistors">
 					<h4>Pull-down Resistors</h4>
+					<p>
+						There's a common phenomenon in guitar effects pedals - an audible <i>pop</i> noise when you un-bypass an effect by stomping it back into it's on state. This is something that's easily avoided by simply adding a resistor just on the inboard side of any switches.
+					</p>
+					<p>
+						As we saw in the <a href = "#impedance">impedance</a> section, a capacitor 'blocks' direct current from flowing through it. This may be true for an ideal capacitor, but in the real world, things aren't so convenient. In reality, a capacitor will actually 'leak' a small amount of direct current through itself, from the higher potential port to the lower. This leakage current is essentially the cause of this switching pop. 
+					</p>
+					<p>
+						Let's say we have a <a href = "couplingCapacitor">coupling capacitor</a> in series with our input in order to add a <i>DC bias</i> to the AC signal. If we bypass the effect, we are leaving one leg of the capacitor 'floating' (disconnected), but the other leg is still connected to our biasing voltage. Initially, the floating leg will be at whatever potential the input was at when we disconnected (somewhere around \(0V\)). This potential difference forces the leakage current through the capacitor, gradually increasing the potential of the floating leg, until both legs are at the same potential (the biasing voltage). Our AC signal has a DC offset of \(0V\), and so when we switch the effect back on, there is a sudden rush of current through the load as the biasing voltage comes into contact with a much lower voltage, which is then amplified etc. and we hear that not-so-attractive pop.
+					</p>
+					<p>
+						The solution to this is a pull-down resistor.
+					</p>
+				</div>
+				
+				<div id = "couplingCapacitors">
 				</div>
 				
 				<div id = "frequencyFilters">
