@@ -10,7 +10,7 @@ document.write("$('a').each(function() {");
 document.write("if ($(this).prop('href') == window.location.href) {");
 document.write("$(this).addClass('current');");
 document.write("if (window.location.href == null){");
-document.write("if ($(this).prop('href') == "index.html") {");
+document.write("if ($(this).prop('href') == \"index.html\") {");
 document.write("$(this).addClass('current');");
 document.write("}");
 document.write("}");
