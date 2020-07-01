@@ -14,7 +14,6 @@ document.write("var URL = window.location.href;");
 document.write("var re = new RegExp(\/^.*\\\/\/);");
 document.write("var rootURL = re.exec(URL);");
 document.write("if (URL.indexOf('#') != -1){var pageAddress = URL.substr(0, URL.indexOf('#'));}else{pageAddress = URL}");
-document.write("$(document.body).append(pageAddress);");
 document.write("if ($(this).prop('href') == pageAddress)");
 document.write("{");
 document.write("$(this).addClass('current');");
