@@ -1,0 +1,15 @@
+document.write("<script>");
+document.write("var coll = document.getElementsByClassName(\"collapsible\");");
+document.write("var i;");
+document.write("for (i = 0; i < coll.length; i++) {");
+document.write("coll[i].addEventListener(\"click\", function() {");
+document.write("this.classList.toggle(\"active\");");
+document.write("var content = this.nextElementSibling;");
+document.write("if (content.style.maxHeight){");
+document.write("content.style.maxHeight = null;");
+document.write("} else {");
+document.write("content.style.maxHeight = content.scrollHeight + \"px\";");
+document.write("}");
+document.write("});");
+document.write("}");
+document.write("</script>");

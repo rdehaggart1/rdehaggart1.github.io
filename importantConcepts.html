@@ -22,10 +22,11 @@
 			<div id = "importantConcepts">
 				<h3>Important Concepts</h3>
 				<p>
-					Whilst this guide assumes a certain level of knowledge, there are some fundamental concepts that are really common and important in guitar effects pedals, and it's worth making sure we're all on the same page. At the end of this section, we'll disect the <i>MXR Distortion Plus</i>, and identify these key concepts. This will help us understand how this (and other pedals) do what they do to our playing!
+					Whilst this guide assumes a certain level of knowledge, there are some fundamental concepts that are really common and important in guitar effects pedals, and it's worth making sure we're all on the same page. Expand a section to find out more.
 				</p>
 				
-				<div id = "grounding">
+				<button class = "collapsible" id = "grounding">Grounding</button>
+				<div class = "collapsibleContent">
 					<h4>Grounding</h4>
 					<p style = "text-align: center">
 						<b>Correctly grounding your circuits is important. Incorrect grounding can create a shock hazard. Please check your circuits thoroughly to make sure the grounding is adequate</b>.
@@ -48,8 +49,8 @@
 					</p>
 				</div>
 				
-				
-				<div id = "activeOrPassive">
+				<button class = "collapsible" id = "activeOrPassive">Active or Passive?</button>
+				<div class = "collapsibleContent">
 					<h4>Active or Passive?</h4>
 						<p>
 							This one is nice and simple. The circuits we'll look at will have both active and passive components. 
@@ -62,7 +63,8 @@
 						</p>
 				</div>
 				
-				<div id = "impedance">
+				<button class = "collapsible" id = "impedance">Impedance</button>
+				<div class = "collapsibleContent">
 					<h4>Impedance</h4>
 						<p>
 							Hopefully you have a decent grasp of <a href = "https://www.allaboutcircuits.com/textbook/direct-current/chpt-1/resistance/" target="_blank"><i>resistance</i></a>. <i>Impedance</i> is admittedly a little scarier (remember those imaginary numbers you thought you'd never need...). But for our purposes, the core takeaway is that <b>impedance is the effective resistance of a component to alternating current</b>. Remember how we said the vibration in the guitar string causes an alternating voltage level in your guitar circuitry? Perhaps it's obvious that this alternating voltage force pushes alternating current through the circuit, and so the impedance is a very important thing to understand and quantify. 
@@ -87,25 +89,29 @@
 						</p>
 				</div>		
 				
-				<div id = "sourceAndLoadImpedance">
-				<h4>Source and Load Impedance</h4>
-					<p>
-						Now that we have some understanding of impedance, we have to touch on a <b>VERY IMPORTANT THING</b>. As well as the impedance that exists all around our pedal circuitry, <b>we must also consider what is happening at the output of our guitar, and at the input of out amplifier!!!</b>
-					</p> 
+				<button class = "collapsible" id = "sourceAndLoadImpedance">Source and Load Impedance</button>
+				<div class = "collapsibleContent">
+					<h4>Source and Load Impedance</h4>
+						<p>
+							Now that we have some understanding of impedance, we have to touch on a <b>VERY IMPORTANT THING</b>. As well as the impedance that exists all around our pedal circuitry, <b>we must also consider what is happening at the output of our guitar, and at the input of out amplifier!!!</b>
+						</p> 
 				</div>
 				
-				<div id = "voltageDividers">
+				<button class = "collapsible" id = "voltageDividers">Voltage Dividers</button>
+				<div class = "collapsibleContent">
 					<h4>Voltage Dividers</h4>
 				</div>
 				
-				<div id = "currentLimitingResistors">
+				<button class = "collapsible" id = "currentLimitingResistors">Current Limiting Resistors</button>
+				<div class = "collapsibleContent">
 					<h4>Current-limiting Resistors</h4>
 					<p>
 						Some components are especially sensitive.
 					</p>
 				</div>
-
-				<div id = "pulldownResistors">
+				
+				<button class = "collapsible" id = "pullDownResistors">Pull-down Resistors</button> 
+				<div class = "collapsibleContent">
 					<h4>Pull-down Resistors</h4>
 					<p>
 						There's a common phenomenon in guitar effects pedals - an audible <i>pop</i> noise when you un-bypass an effect by stomping it back into it's on state. This is something that's easily avoided by simply adding a resistor just on the inboard side of any switches.
@@ -121,20 +127,23 @@
 					</p>
 				</div>
 				
-				<div id = "couplingCapacitors">
+				<button class = "collapsible" id = "couplingCapacitors">Coupling Capacitors</button>
+				<div class = "collapsibleContent">
 				</div>
 				
-				<div id = "frequencyFilters">
+				<button class = "collapsible" id = "frequencyFilters">Frequency Filters</button>
+				<div class = "collapsibleContent">
 					<h4>Frequency Filters</h4>
 				</div>
 				
-				<h4>Dissecting a Pedal</h4>
 			</div>
 		</div>
 		
 		<div class = "navButton">
 			<a href = "componentsAndTools.html" class = "button button-prev"><span>Prev | Components and Tools</span></a>
 		</div>
+		
+		<script type="text/javascript" src="includes/collapsible.js"></script>
 		
 	</body>
 </html>

@@ -270,3 +270,45 @@ figcaption {
 	padding: 10px;
 	text-align: center;
 }
+
+/* COLLAPSIBLES */
+.collapsible 
+{
+	background-color: #eee;
+	color: black;
+	cursor: pointer;
+	padding: 18px;
+	width: 100%;
+	border: solid #FF8C00;
+	text-align: left;
+	outline: none;
+	font-size: 17px;
+	margin-top: 10px;
+}
+.active, .collapsible:hover 
+{
+	background-color: #ddd;
+}
+.collapsible:after 
+{
+	content: '\002B';
+	color: black;
+	font-weight: bold;
+	float: right;
+	margin-left: 5px;
+}
+.active:after {
+	content: "\2212";
+}
+.collapsibleContent {
+	padding: 0 18px;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
+	background-color: #f1f1f1;
+}
+
+.collapsibleContent figCaption
+{
+	background-color: #f1f1f1;
+}
