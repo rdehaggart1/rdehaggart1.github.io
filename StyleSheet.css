@@ -89,6 +89,11 @@ hr.orangeRow
   .sidenav a {font-size: 18px;}
 }
 
+a.current 
+{
+	color: orange;
+}
+
 /* HEADER */
 .header
 {
