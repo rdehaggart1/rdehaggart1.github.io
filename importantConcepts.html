@@ -127,6 +127,13 @@
 				
 				<button class = "collapsible" id = "couplingCapacitors" onclick = "smoothScroll(document.getElementById('couplingCapacitors'))">Coupling Capacitors</button>
 				<div class = "collapsibleContent">
+					<h4>Coupling Capacitors</h4>
+					<p>
+						So we know that <a href = "#impedance">capacitors 'block' direct current</a>. This is a really useful property when it comes to designing guitar effects pedals. Our AC input signal is centered around \(0V\), meaning it has no DC offset. For some applications, however, we need to add a DC offset to our signal so that it's instead centered around \(4.5V\), for example.
+					</p>
+					<p>
+						The biasing voltage can be easily achieved by using a <a href = "#voltageDividers">voltage divider</a> to give us some fraction of a DC supply (like a \(9V\) battery). 
+					</p>
 				</div>
 				
 				<button class = "collapsible" id = "smoothingCapacitors" onclick = "smoothScroll(document.getElementById('smoothingCapacitors'))">Smoothing Capacitors</button>
@@ -136,6 +143,9 @@
 				<button class = "collapsible" id = "frequencyFilters" onclick = "smoothScroll(document.getElementById('frequencyFilters'))">Frequency Filters</button>
 				<div class = "collapsibleContent">
 					<h4>Frequency Filters</h4>
+					<p>
+						Remember when <a href = "simplifyingAssumptions.html#110HzFrequencySpectrum" target = "_blank">we represented the frequency content</a> of a note using a frequency spectrum? That representation might be quite useful here too. If we want to modify the frequency content of our signal, we can apply a frequency filter. Most commonly, this is what the <i>tone</i> potentiometer on your guitar is doing. 
+					</p>
 				</div>
 				
 			</div>
