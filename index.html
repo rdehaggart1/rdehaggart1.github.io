@@ -8,12 +8,21 @@
 		<script>
 		$(function()
 		{
-			$(document.body).append(window.location.href);
 			$('a').each(function() 
 			{
+				var re = new RegExp(/^.*\//);
+				var url = re.exec(window.location.href);
+				
 				if ($(this).prop('href') == window.location.href) 
 				{
 					$(this).addClass('current');
+				}
+				if(url == window.location.href)
+				{
+					if ($(this).prop('href') == url + "index.html") 
+					{
+						$(this).addClass('current');
+					}
 				}
 			});
 		});
