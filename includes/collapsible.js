@@ -32,5 +32,13 @@ document.write("setTimeout(function(){ scroll(c, a, b, i); }, 20);");
 document.write("}");
 document.write("\nscroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);");
 document.write("}");
+document.write("</script>");
 
+document.write("<script src = \"jquery/jquery-3.5.1.min.js\"></script>");
+document.write("<script>");
+document.write("$(function(){");
+document.write("var myRegExp = \/^.*\\#(.*)\/;");
+document.write("var section = myRegExp.exec(window.location.href)[1];");
+document.write("document.getElementById(section).click();");
+document.write("});");
 document.write("</script>");
