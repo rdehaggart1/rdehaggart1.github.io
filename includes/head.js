@@ -9,7 +9,7 @@ document.write("$(function()");
 document.write("{");
 document.write("$('a').each(function()");
 document.write("{");
-document.write("var re = new RegExp(/^.*\//);");
+document.write("var re = new RegExp(\/^.*\\\/\/);");
 document.write("var url = re.exec(window.location.href);");
 document.write("if ($(this).prop('href') == window.location.href)");
 document.write("{");
