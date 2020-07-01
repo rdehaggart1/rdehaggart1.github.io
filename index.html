@@ -3,6 +3,22 @@
 	<head>
 		<script type="text/javascript" src="includes/head.js"></script>
 		<title>Introduction - GFXG</title>
+		
+		<script src="jquery/jquery-3.5.1.min.js"></script>
+		<script>
+		$(function()
+		{
+			$(document.body).append(window.location.href);
+			$('a').each(function() 
+			{
+				if ($(this).prop('href') == window.location.href) 
+				{
+					$(this).addClass('current');
+				}
+			});
+		});
+		</script>
+		
 	</head>
 	<body>
 		
