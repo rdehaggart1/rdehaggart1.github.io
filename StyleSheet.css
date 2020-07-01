@@ -92,6 +92,7 @@ hr.orangeRow
 a.current 
 {
 	color: orange;
+	background: #ddf;
 }
 
 /* HEADER */
