@@ -3,7 +3,7 @@ document.write("<link href=\"StyleSheet.css\" rel=\"stylesheet\">");
 document.write("<script src=\"https://polyfill.io/v3/polyfill.min.js?features=es6\"></script>");
 document.write("<script id=\"MathJax-script\" async src=\"https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js\"></script>");
 document.write("<link rel = \"icon\" href = \"images/icon.ico\">");
-document.write("<script src=\"http://code.jquery.com/jquery-1.8.3.min.js\"></script>");
+document.write("<script src=\"jquery/jquery-3.5.1.min.js\"></script>");
 document.write("<script>");
 document.write("$(function(){");
 document.write("$('a').each(function() {");
