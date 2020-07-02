@@ -121,8 +121,7 @@ a.current
 .contactTab
 {
 	position: absolute;
-	top: 62%;
-	right: 7.4%;
+	right: 10%;
 	margin: 0;
 	padding: 10px;
 	
@@ -136,6 +135,8 @@ a.current
 	border-top: solid #FF6A00;
 	border-radius: 2px;
 	display: inline-block;
+	
+	bottom: 0px;
 	
 	cursor: pointer;
 }
