@@ -9,9 +9,9 @@ body
 .main 
 {
 	margin-top: 0px;
-	margin-left: 300px; /* Same as the width of the sidenav */
-	margin-right: 100px; 
-    padding: 10px 50px 50px 50px;
+	margin-left: 30%; /* Same as the width of the sidenav */
+	margin-right: 10%; 
+    padding: 1% 5% 5% 5%;
 	text-align: justify;
 	background-color: #fff;
 }
@@ -64,7 +64,7 @@ hr.orangeRow
   height: 100%;
   float: left;
   position: sticky;
-  width: 200px;
+  width: 20%;
   z-index: 1;
   top: 0;
   left: 0;
@@ -84,12 +84,6 @@ hr.orangeRow
 {
   color: #d1d1d1;
 }
-@media screen and (max-height: 450px) 
-{
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-
 a.current 
 {
 	color: orange;
@@ -112,7 +106,7 @@ a.current
 }
 .headerImg
 {
-	width: 180px;
+	width: 18%;
 	padding-top: 10px;
 	float: left;
 }
@@ -120,10 +114,10 @@ a.current
 {
 	margin-top: 20px;
 	margin-bottom: 10px;
-	margin-left: 300px;
-	margin-right: 100px;
+	margin-left: 30%;
+	margin-right: 10%;
 	color: #FF6A00;
-	font-size: 50px;
+	font-size: 5vw;
 }
 .contactTab
 {
@@ -234,11 +228,11 @@ a.current
 /* HEADINGS */
 h1
 {
-	font-size: 28px;
+	font-size: 2rem;
 }
 h2
 {
-	font-size: 25px;
+	font-size: 1rem;
 }
 h3
 {
@@ -317,4 +311,11 @@ figcaption {
 .collapsibleContent figCaption
 {
 	background-color: #f1f1f1;
+}
+
+
+/* MOBILE */
+@media screen and (max-height: 481px) 
+{
+  .sidenav {display: none;}
 }
