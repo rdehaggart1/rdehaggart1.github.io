@@ -9,9 +9,9 @@ body
 .main 
 {
 	margin-top: 0px;
-	margin-left: 300px; /* Same as the width of the sidenav */
-	margin-right: 100px; 
-    padding: 10px 50px 50px 50px;
+	margin-left: 25%;
+	margin-right: 10%; 
+    padding: 1% 5% 5% 5%;
 	text-align: justify;
 	background-color: #fff;
 }
@@ -64,7 +64,7 @@ hr.orangeRow
   height: 100%;
   float: left;
   position: sticky;
-  width: 200px;
+  width: 15%;
   z-index: 1;
   top: 0;
   left: 0;
@@ -322,11 +322,7 @@ figcaption {
 	}
 	.main 
 	{
-		margin-top: 0px;
 		margin-left: 0;
 		margin-right: 0; 
-		padding: 10px 50px 50px 50px;
-		text-align: justify;
-		background-color: #fff;
 	}
 }
