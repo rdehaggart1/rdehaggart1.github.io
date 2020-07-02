@@ -14,13 +14,6 @@ body
     padding: 1% 5% 5% 5%;
 	text-align: justify;
 	background-color: #fff;
-}
-p
-{
-	font-size: 17px;
-}
-ul
-{
 	font-size: 17px;
 }
 .firstPerson
@@ -324,5 +317,6 @@ figcaption {
 	{
 		margin-left: 0;
 		margin-right: 0; 
+		font-size: 15px;
 	}
 }
