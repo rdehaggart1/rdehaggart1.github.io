@@ -100,18 +100,22 @@ a.current
 }
 .headerImg
 {
-	width: 180px;
+	width: 13%;
 	padding-top: 10px;
 	float: left;
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	transform: translate(-0%, -50%);
 }
 .header h3
 {
 	margin-top: 20px;
 	margin-bottom: 10px;
-	margin-left: 300px;
-	margin-right: 100px;
+	text-align: center;
+	padding: 0;
 	color: #FF6A00;
-	font-size: 50px;
+	font-size: 3.5vw;
 }
 .contactTab
 {
