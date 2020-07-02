@@ -320,4 +320,13 @@ figcaption {
 	{
 		display: none;
 	}
+	.main 
+	{
+		margin-top: 0px;
+		margin-left: 0;
+		margin-right: 0; 
+		padding: 10px 50px 50px 50px;
+		text-align: justify;
+		background-color: #fff;
+	}
 }
