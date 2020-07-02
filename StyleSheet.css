@@ -23,6 +23,16 @@ ul
 {
 	font-size: 17px;
 }
+.firstPerson
+{
+	font-style: italic;
+}
+hr.orangeRow
+{
+	border-top: 2px solid orange;
+}
+
+/* CONTENTS */
 #contentsContainer
 {
 	background: #f9f9f9 none repeat scroll 0 0;
@@ -47,15 +57,6 @@ ul
 	font-style: italic;
 	padding-right: 10px;
 }
-.firstPerson
-{
-	font-style: italic;
-}
-hr.orangeRow
-{
-	border-top: 2px solid orange;
-}
-
 
 /* NAV BAR */
 .sidenav 
@@ -313,7 +314,6 @@ figcaption {
 	transition: max-height 0.2s ease-out;
 	background-color: #f1f1f1;
 }
-
 .collapsibleContent figCaption
 {
 	background-color: #f1f1f1;
