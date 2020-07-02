@@ -112,8 +112,9 @@ a.current
 {
 	margin-top: 20px;
 	margin-bottom: 10px;
+	padding-left: 25%;
+	padding-right: 10%;
 	text-align: center;
-	padding: 0;
 	color: #FF6A00;
 	font-size: 3.5vw;
 }
