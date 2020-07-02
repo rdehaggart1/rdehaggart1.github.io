@@ -8,13 +8,13 @@ body
 }
 .main 
 {
-	margin-top: 0px;
+	margin-top: 0;
 	margin-left: 25%;
 	margin-right: 10%; 
     padding: 1% 5% 5% 5%;
 	text-align: justify;
 	background-color: #fff;
-	font-size: 17px;
+	font-size: 1.25vw;
 }
 .firstPerson
 {
@@ -222,27 +222,27 @@ a.current
 /* HEADINGS */
 h1
 {
-	font-size: 28px;
+	font-size: 150%;
 }
 h2
 {
-	font-size: 25px;
+	font-size: 140%;
 }
 h3
 {
-	font-size: 22px;
+	font-size: 130%;
 	color: #FF8C00;
 	font-weight: bold;
 }
 h4
 {
-	font-size: 19px;
+	font-size: 120%;
 	color: #DE7300;
 	font-style: italic;
 }
 h5
 {
-	font-size: 17px;
+	font-size: 100%;
 	text-decoration: underline;
 }
 
