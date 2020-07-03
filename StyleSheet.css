@@ -123,14 +123,14 @@ a.current
 	position: absolute;
 	right: 10%;
 	margin: 0;
-	padding: 10px;
+	padding: 1%;
 	
 	color: #FF6A00;
 	background-color: white;
 	
 	text-decoration: none;
 	text-align: center;
-	font-size: 1.2vw;
+	font-size: 1vw;
 	
 	border-top: solid #FF6A00;
 	border-radius: 2px;
@@ -149,11 +149,12 @@ a.current
 /* NAVIGATION BUTTONS */
 .navButton
 {
-	margin-left: 300px;
+	margin-left: 25%;
 	margin-bottom: 100px;
-	margin-right: 100px;
-	padding: 10px 0px 10px 0px;
+	margin-right: 10%;
+	padding: 1% 0px 1% 0px;
 	background-color: #eee;
+	font-size: 16px;
 }
 .button 
 {
@@ -162,10 +163,9 @@ a.current
 	
 	text-decoration: none;
 	text-align: center;
-	font-size: 16px;
 	
-	padding: 15px 32px;
-	margin: 4px 2px;
+	padding: 1.5% 3.2%;
+	margin: 0.4% 0.2%;
 	
 	border: none;
 	border-radius: 4px;
@@ -329,5 +329,11 @@ figcaption {
 		margin-left: 0;
 		margin-right: 0; 
 		font-size: 15px;
+	}
+	.navButton 
+	{
+		margin-left: 0;
+		margin-right: 0; 
+		font-size: 11px;
 	}
 }
