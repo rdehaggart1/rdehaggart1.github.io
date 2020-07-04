@@ -110,7 +110,6 @@ a.current
 .headerTab
 {
 	position: absolute;
-	height: 8vh;
 	width: auto;
 	
 	right: 10%;
@@ -123,15 +122,16 @@ a.current
 	
 	text-decoration: none;
 	text-align: center;
-	font-size: 20px;
+	font-size: 22px;
 	
-	border-bottom: solid #FF6A00;
+	border-bottom: solid 5px #FF6A00;
 	border-radius: 2px;
     display: flex;
     align-items: center;
     justify-content: center;
 	
 	bottom: 0px;
+	top: 0px;
 	
 	cursor: pointer;
 }
