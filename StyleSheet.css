@@ -93,15 +93,14 @@ a.current
 	position: relative;
 	z-index: 999999;
 	background-color: white;
-	height: 100px;
-	padding: 10px;
-	margin-bottom: 10px;
+	height: 8%;
+	padding: 1%;
+	margin-bottom: 1%;
     text-align: center;
 }
 .headerImg
 {
 	width: 13%;
-	padding-top: 10px;
 	float: left;
 	margin: 0;
 	position: absolute;
