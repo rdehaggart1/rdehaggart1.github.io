@@ -37,6 +37,14 @@
 								<li><a href = "#operationalAmplifiers">Operational Amplifiers</a></li>
 							</ul>
 						<li><a href = "#tools">Tools</a></li>
+							<ul>
+								<li><a href = "#breadboard">Breadboard</a></li>
+								<li><a href = "#stripboard">Stripboard</a></li>
+								<li><a href = "#wireStrippers">Wire Strippers </a></li>
+								<li><a href = "#solderingEquipment">Soldering Equipment</a></li>
+								<li><a href = "#multimeter">Multimeter</a></li>
+								<li><a href = "#makerBoard">Maker Board</a></li>
+							</ul>
 					</ul>
 				</div>
 				
@@ -105,7 +113,24 @@
 					<div id = "potentiometers">
 						<h5>Potentiometers</h5>
 						<p>
-							A potentiometer is a variable <a href = "#resistors">resistor</a> - you might hear them called <i>pots</i> for short. They should be quite familiar to you - those knobs on your guitar that control volume and tone are potentiometers.
+							A potentiometer is a variable <a href = "#resistors">resistor</a> - you might hear them called <i>pots</i> for short. They should be quite familiar to you - those knobs on your guitar that control volume and tone are potentiometers! You might also hear them called <i>variable resistors</i>, because that's really what they are. 
+						</p>
+						<p>
+							A <i>potentiometer</i> is a resistor with three legs, and has a dial to control the resistance between each of the legs. The <i>potentiometers</i> symbol paints the picture quite nicely:
+						</p>
+						<figure id = "potentiometerSymbol">
+							<img src = "figures/potentiometerSymbol.png" alt = "the electronic symbol for a potentiometer"></img>
+							<figcaption>The electronic symbol for a potentiometer</figcaption>
+						</figure>
+						<p>
+							Legs <i>1</i> and <i>3</i> of the potentiometer in this symbol are just like a normal resistor. Leg <i>2</i> is connected to a wiper that can move across the resistor. This means that the resistance is split in two - there's one resistance between legs <i>1</i> and <i>2</i>, and another between legs <i>2</i> and <i>3</i>. So if we had a \(250k\Omega\) potentiometer, and the middle leg was \({1 \over 4}\) of the way from leg <i>1</i>, we could represent the circuit using two separate resistors, like this:
+						</p>
+						<figure id = "potentiometerEquivalent">
+							<img src = "figures/potentiometerEquivalent.png" alt = "the 2-resistor equivalent of a potentiometer"></img>
+							<figcaption>A potentiometer represented as two separate-resistors</figcaption>
+						</figure>
+						<p>
+							Conveniently, this is just a <a href = "importantConcepts.html#voltageDividers" target = "_blank"><i>potential divider</i></a>, which is a common and useful bit of circuitry.
 						</p>
 					</div>
 					
@@ -126,7 +151,7 @@
 					<div id = "diodes">
 						<h5>Diodes</h5>
 						<p>
-							Here come the semiconductors! As we start looking at some more complicated designs, like overdives, diodes will start to become more important.
+							<b>Here come the semiconductors!</b> As we start looking at some more complicated designs, like overdives, diodes will start to become more important.
 						</p>
 					</div>
 					
@@ -156,11 +181,41 @@
 						</p>
 					</div>
 					
-					<h5>Stripboard</h5>
-					<h5>Wire Strippers</h5>
-					<h5>Soldering Equipment</h5>
-					<h5>Multimeter</h5>
-					<h5>Maker Board</h5>
+					<div id = "stripboard">
+						<h5>Stripboard</h5>
+				
+					</div>
+					
+					<div id = "wireStrippers">
+						<h5>Wire Strippers</h5>
+							<p>
+								This is where things start getting more optional.
+							</p>
+							<p>
+								To fit your wires into breadboard/stripboard, and to have the wires function as they should, you'll need to strip the insulation off the ends to expose the conductor underneath. Wire strippers also allow you to cut lengths of wire that are more managable than \(10m\) coils... That's really all there is to it! 
+							</p>
+							<p>
+								They really do make your life a lot easier, so depending on your plans, it might be worth splashing out ~£15-£30 on a decent set - something like <a href = "https://uk.rs-online.com/web/p/wire-strippers/0613044/" target = "_blank">this</a> should do the trick nicely!
+							</p>
+							<p>
+								Some <a href = "#solderingEquipment">soldering kits</a> come with little wire stripping tools, so if you think this might do the job, you might not need a larger set too.
+							</p>
+					</div>
+					
+					<div id = "solderingEquipment">
+						<h5>Soldering Equipment</h5>
+					</div>
+					
+					<div id = "multimeter">
+						<h5>Multimeter</h5>
+						<p>
+							A multimeter is a useful tool for anyone working on electronics in any capacity. A multimeter is by no means necessary, but it can make troubleshooting a lot simpler - you can take measurements across your circuits, determine the polarity or sizes of components, that kind of thing. 
+						</p>
+					</div>
+					
+					<div id = "makerBoard">
+						<h5>Maker Board</h5>
+					</div>
 				</div>
 				
 			</div>
