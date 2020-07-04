@@ -177,7 +177,6 @@ a.current
 }
 #searchBar:focus {
     outline-width: 0;
-	::placeholder: {none};
 }
 
 /* NAVIGATION BUTTONS */
@@ -376,4 +375,22 @@ figcaption {
 	{
 		font-size: 12px;
 	}
+}
+
+/* AUDIO PLAYER */
+/* https://chromium.googlesource.com/chromium/blink/+/72fef91ac1ef679207f51def8133b336a6f6588f/Source/core/css/mediaControls.css?autodive=0%2F%2F%2F */
+audio
+{
+	width: 50%;
+	margin: 0 auto; 
+	display: block;
+}
+
+audio::-webkit-media-controls-panel
+{
+	background-color: white;
+}
+
+audio:focus {
+    outline-width: 0;
 }
