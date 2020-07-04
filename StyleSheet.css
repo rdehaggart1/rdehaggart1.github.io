@@ -170,6 +170,8 @@ a.current
 	border-radius: 4px;
 	display: inline-block;
 	
+	max-width: 30%;
+	
 	cursor: pointer;
 }
 .button-next
@@ -333,6 +335,6 @@ figcaption {
 	{
 		margin-left: 0;
 		margin-right: 0; 
-		font-size: 11px;
+		font-size: 14px;
 	}
 }
