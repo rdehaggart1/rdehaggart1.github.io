@@ -26,21 +26,21 @@
 						<figcaption>An illustration of the superposition of two waves</figcaption>
 					</figure>
 					<p>
-					To help visualise all of this, an <a href = "https://www.audacityteam.org/" target="_blank">Audacity</a> analysis of an <a href = "https://archive.org/details/GuitarChord-A/5th_String_A.aiff" target="_blank">open A string recording</a> follows.
+					To help visualise all of this, an <a href = "https://www.audacityteam.org/" target="_blank">Audacity</a> analysis of an <a href = "https://archive.org/details/GuitarChord-A/5th_String_A.aiff" target="_blank">open A string recording</a> follows (<i><a href = "#A_String_Recording">audio recording</a> included above the figures below</i>).
 					</p>
-					<audio controls>
-						<source src = "audio/A_String.mp3" type = "audio/mpeg"/>
-							<p>
-								Your browser doesn't support HTML5 audio.
-								This audio clip is of an open 'A' string being played on an acoustic guitar.
-							</p>
-					</audio>
 					<p>
 						The first image below shows a portion of the waveform of the recording. There is a general periodicity to the signal, though you can clearly see the shape of the wave changing over time. This is a result of the harmonic content of the note changing over time. The duration for 10 cycles of this waveform is measured to be \(T_{10}=0.091s\). Averaging this result over ten cycles gives the duration of a single cycle, \(T={T_{10} \over 10}=0.0091s\). Now, frequency is simply defined as \(f={1 \over T}\), and so the (dominant) frequency of this signal is \(f={1 \over 0.0091}≈110Hz\), as we expect for an open A string.
 					</p>
 					<p>
 						The second image shows the frequency analysis of this same audio signal (using Audacity’s Analyze > Plot Spectrum tool). This may or may not make sense to you, but the key points are that the horizontal axis represents frequency (in \(Hz\)), and the vertical axis represents the magnitude (in \(dB\)). Remember how we said we could split the audio signal into different frequency components - each with different magnitudes? This tool does that for us. In this case, the first 5 peaks are highlighted. They correspond to the fundamental frequency (\(f_0=110Hz\)), followed by the overtones we would expect for this note (\(f_1=220Hz\), \(f_2=330Hz\), \(f_3=440Hz\), \(f_4=550Hz\)).
 					</p>
+					<audio controls id = "A_String_Recording">
+						<source src = "audio/A_String.mp3" type = "audio/mpeg"/>
+						<p class = "audioAlt">
+							Your browser doesn't support HTML5 audio.
+							This audio clip is of an open 'A' string being played on an acoustic guitar.
+						</p>
+					</audio>
 					<figure id = "110HzWaveform">
 						<img src = "figures/A_String_waveform.png" alt = "An open A string recording, visualised (time domain)"></img>
 						<figcaption>The waveform of an open 'A' string recording, as played on an acoustic guitar</figcaption>
@@ -58,8 +58,15 @@
 						</ul>
 					</p>
 					<p>
-						Our simplified audio signal is shown below. Don’t worry about the much larger amplitude here – it’s simply been plotted with a peak amplitude of 1 for convenience. The frequency is still \(f_0=110Hz\), but we have eliminated the harmonics and any time variance in the signal. This will prove much simpler to analyse, and it turns out that it’s a good enough approximation to allow us to do a good job.
+						Our simplified audio signal is shown below (<i>and a <a href = "#110Hz_Recording">recording</a> of what this sounds like</i>). The frequency is still \(f_0=110Hz\), but we have eliminated the harmonics and any time variance in the signal. This will prove much simpler to analyse, and it turns out that it’s a good enough approximation to allow us to do a good job.
 					</p>
+					<audio controls id = "110Hz_Recording">
+						<source src = "audio/110Hz.mp3" type = "audio/mpeg"/>
+						<p class = "audioAlt">
+							Your browser doesn't support HTML5 audio.
+							This audio clip is of a pure 110Hz sine wave.
+						</p>
+					</audio>
 					<figure id = "idealisedWaveform">
 						<img src = "figures/Idealised_waveform.png" alt = "An idealised 110Hz waveform"></img>
 						<figcaption>A simplified audio signal waveform at \(110Hz\)</figcaption>

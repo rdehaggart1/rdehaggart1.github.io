@@ -361,14 +361,16 @@ audio
 	margin: 0 auto; 
 	display: block;
 }
-
 audio::-webkit-media-controls-panel
 {
 	background-color: white;
 }
-
 audio:focus {
     outline-width: 0;
+}
+.audioAlt
+{
+	font-weight: bold;
 }
 
 @media screen and (max-width: 481px) 
