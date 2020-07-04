@@ -81,7 +81,7 @@ hr.orangeRow
 a.current 
 {
 	color: orange;
-	background: #ddf;
+	background: #def;
 }
 
 /* HEADER */
@@ -93,54 +93,52 @@ a.current
 	position: relative;
 	z-index: 999999;
 	background-color: white;
-	height: 8%;
+	height: 8vh;
 	padding: 1%;
 	margin-bottom: 1%;
     text-align: center;
 }
 .headerImg
 {
-	width: 13%;
+	height: 8vh;
+	width: auto;
 	float: left;
-	margin: 0;
+	margin: auto;
 	position: absolute;
 	vertical-align: middle;
 }
-.header h3
-{
-	margin-top: 20px;
-	margin-bottom: 10px;
-	padding-left: 25%;
-	padding-right: 10%;
-	text-align: center;
-	color: #FF6A00;
-	font-size: 3.5vw;
-}
-.contactTab
+.headerTab
 {
 	position: absolute;
+	height: 8vh;
+	width: auto;
+	
 	right: 10%;
 	margin: 0;
-	padding: 1%;
+	padding-left: 1%;
+	padding-right: 1%;
 	
 	color: #FF6A00;
 	background-color: white;
 	
 	text-decoration: none;
 	text-align: center;
-	font-size: 1vw;
+	font-size: 20px;
 	
-	border-top: solid #FF6A00;
+	border-bottom: solid #FF6A00;
 	border-radius: 2px;
-	display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 	
 	bottom: 0px;
 	
 	cursor: pointer;
 }
-.contactTab:hover
+.headerTab:hover
 {
 	background-color: #eee;
+	border-bottom: solid #FF1100;
 }
 
 
@@ -335,5 +333,9 @@ figcaption {
 		margin-left: 0;
 		margin-right: 0; 
 		font-size: 14px;
+	}
+	.contactTab
+	{
+		font-size: 15px;
 	}
 }
