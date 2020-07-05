@@ -370,7 +370,12 @@ audio:focus {
 }
 .audioAlt
 {
-	font-weight: bold;
+	width: 50%;
+	margin: auto;
+	border: solid 1px grey;
+	border-radius: 20px;
+	text-align: center;
+	font-style: italic;
 }
 
 @media screen and (max-width: 481px) 
