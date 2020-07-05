@@ -22,7 +22,7 @@ document.write("}");
 document.write("var sideNavChildren = sideNav.children(\"a\");");
 document.write("var numChildren = sideNavChildren.length;");
 
-document.write("if(rootURL == window.location.href){pageAdress = rootURL + \"index.html\";}");
+document.write("if(rootURL == window.location.href){pageAddress = rootURL + \"index.html\";}");
 
 document.write("$(function()");
 document.write("{");
