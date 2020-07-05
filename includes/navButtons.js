@@ -22,6 +22,8 @@ document.write("}");
 document.write("var sideNavChildren = sideNav.children(\"a\");");
 document.write("var numChildren = sideNavChildren.length;");
 
+document.write("if(rootURL == window.location.href){pageAddress = rootURL + \"index.html\";}");
+
 document.write("$(function()");
 document.write("{");
 document.write("$(sideNavChildren).each(function()");
@@ -30,18 +32,11 @@ document.write("if ($(this).prop('href') == pageAddress)");
 document.write("{");
 document.write("var sideNavIndex = sideNavChildren.index($(this));");
 document.write("var currentPage = $(this).text();");
-document.write("if(rootURL == window.location.href){currentPage = \"Introduction\"; sideNavIndex = 1;}");
-
-document.write("$(document.body).append(rootURL);");
-document.write("$(document.body).append(window.location.href);");
 
 document.write("nextPage = $(sideNavChildren[sideNavIndex + 1]).text();");
 document.write("prevPage = $(sideNavChildren[sideNavIndex - 1]).text();");
 document.write("nextPageLink = $(sideNavChildren[sideNavIndex + 1]).prop('href');");
 document.write("prevPageLink = $(sideNavChildren[sideNavIndex - 1]).prop('href');");
-
-document.write("var nextButton = $(\".button-next\");");
-document.write("var prevButton = $(\".button-prev\");");
 
 document.write("if (sideNavIndex - 1 < 1)");
 document.write("{");
