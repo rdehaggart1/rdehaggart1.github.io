@@ -32,8 +32,8 @@ document.write("var sideNavIndex = sideNavChildren.index($(this));");
 document.write("var currentPage = $(this).text();");
 document.write("if(rootURL == window.location.href){currentPage = \"Introduction\"; sideNavIndex = 1;}");
 
-document.write("$(document.body).append(sideNavIndex);");
-document.write("$(document.body).append(currentPage);");
+document.write("$(document.body).append(rootURL);");
+document.write("$(document.body).append(window.location.href);");
 
 document.write("nextPage = $(sideNavChildren[sideNavIndex + 1]).text();");
 document.write("prevPage = $(sideNavChildren[sideNavIndex - 1]).text();");
