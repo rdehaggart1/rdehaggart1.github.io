@@ -30,7 +30,11 @@ document.write("if ($(this).prop('href') == pageAddress)");
 document.write("{");
 document.write("var sideNavIndex = sideNavChildren.index($(this));");
 document.write("var currentPage = $(this).text();");
-document.write("if(rootURL == window.location.href){currentPage = rootURL + \"index.html\"; sideNavIndex = 1;}");
+document.write("if(rootURL == window.location.href){currentPage = \"Introduction\"; sideNavIndex = 1;}");
+
+document.write("$(document.body).append(sideNavIndex);");
+document.write("$(document.body).append(currentPage);");
+
 document.write("nextPage = $(sideNavChildren[sideNavIndex + 1]).text();");
 document.write("prevPage = $(sideNavChildren[sideNavIndex - 1]).text();");
 document.write("nextPageLink = $(sideNavChildren[sideNavIndex + 1]).prop('href');");
