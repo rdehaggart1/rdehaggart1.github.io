@@ -22,7 +22,7 @@ document.write("}");
 document.write("var sideNavChildren = sideNav.children(\"a\");");
 document.write("var numChildren = sideNavChildren.length;");
 
-document.write("if(rootURL == window.location.href){pageAddress = rootURL + \"index.html\";}");
+document.write("if(rootURL == window.location.href){pageAdress = rootURL + \"index.html\";}");
 
 document.write("$(function()");
 document.write("{");
@@ -37,6 +37,9 @@ document.write("nextPage = $(sideNavChildren[sideNavIndex + 1]).text();");
 document.write("prevPage = $(sideNavChildren[sideNavIndex - 1]).text();");
 document.write("nextPageLink = $(sideNavChildren[sideNavIndex + 1]).prop('href');");
 document.write("prevPageLink = $(sideNavChildren[sideNavIndex - 1]).prop('href');");
+
+document.write("var nextButton = $(\".button-next\");");
+document.write("var prevButton = $(\".button-prev\");");
 
 document.write("if (sideNavIndex - 1 < 1)");
 document.write("{");
