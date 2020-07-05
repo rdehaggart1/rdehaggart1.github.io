@@ -25,8 +25,21 @@
 						<img src = "figures/additiveComboPlot.png" alt = "The superposition of two waves"></img>
 						<figcaption>An illustration of the superposition of two waves</figcaption>
 					</figure>
+					<div id = "superpositionDemo">
+						<p>
+							The image above might not make much sense physically. Here is an audio clip to paint the picture a little clearer:
+						</p>
+						<audio controls>
+							<source src = "audio/superpositionDemo.mp3" type = "audio/mpeg"/>
+							<p class = "audioAlt">
+								Your browser doesn't support HTML5 audio.
+								This audio clip is of a pure \(110Hz\) tone, then a pure \(220Hz\) tone, and then a superposition of the two.
+							</p>
+						</audio>
+						<figcaption>Superposition Audio Demonstration</figcaption>
+					</div>
 					<p>
-					To help visualise all of this, an <a href = "https://www.audacityteam.org/" target="_blank">Audacity</a> analysis of an <a href = "https://archive.org/details/GuitarChord-A/5th_String_A.aiff" target="_blank">open A string recording</a> follows (<i><a href = "#A_String_Recording">audio recording</a> included above the figures below</i>).
+					To help visualise all of this, an <a href = "https://www.audacityteam.org/" target="_blank">Audacity</a> analysis of an <a href = "https://archive.org/details/GuitarChord-A/5th_String_A.aiff" target="_blank">open A string recording</a> follows.
 					</p>
 					<p>
 						The first image below shows a portion of the waveform of the recording. There is a general periodicity to the signal, though you can clearly see the shape of the wave changing over time. This is a result of the harmonic content of the note changing over time. The duration for 10 cycles of this waveform is measured to be \(T_{10}=0.091s\). Averaging this result over ten cycles gives the duration of a single cycle, \(T={T_{10} \over 10}=0.0091s\). Now, frequency is simply defined as \(f={1 \over T}\), and so the (dominant) frequency of this signal is \(f={1 \over 0.0091}≈110Hz\), as we expect for an open A string.
@@ -34,13 +47,16 @@
 					<p>
 						The second image shows the frequency analysis of this same audio signal (using Audacity’s Analyze > Plot Spectrum tool). This may or may not make sense to you, but the key points are that the horizontal axis represents frequency (in \(Hz\)), and the vertical axis represents the magnitude (in \(dB\)). Remember how we said we could split the audio signal into different frequency components - each with different magnitudes? This tool does that for us. In this case, the first 5 peaks are highlighted. They correspond to the fundamental frequency (\(f_0=110Hz\)), followed by the overtones we would expect for this note (\(f_1=220Hz\), \(f_2=330Hz\), \(f_3=440Hz\), \(f_4=550Hz\)).
 					</p>
-					<audio controls id = "A_String_Recording">
-						<source src = "audio/A_String.mp3" type = "audio/mpeg"/>
-						<p class = "audioAlt">
-							Your browser doesn't support HTML5 audio.
-							This audio clip is of an open 'A' string being played on an acoustic guitar.
-						</p>
-					</audio>
+					<div id = "A_String_Recording">
+						<audio controls>
+							<source src = "audio/A_String.mp3" type = "audio/mpeg"/>
+							<p class = "audioAlt">
+								Your browser doesn't support HTML5 audio.
+								This audio clip is of an open 'A' string being played on an acoustic guitar.
+							</p>
+						</audio>
+						<figcaption>Open 'A' String Recording</figcaption>
+					</div>
 					<figure id = "110HzWaveform">
 						<img src = "figures/A_String_waveform.png" alt = "An open A string recording, visualised (time domain)"></img>
 						<figcaption>The waveform of an open 'A' string recording, as played on an acoustic guitar</figcaption>
