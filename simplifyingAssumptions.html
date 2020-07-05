@@ -76,13 +76,16 @@
 					<p>
 						Our simplified audio signal is shown below (<i>and a <a href = "#110Hz_Recording">recording</a> of what this sounds like</i>). The frequency is still \(f_0=110Hz\), but we have eliminated the harmonics and any time variance in the signal. This will prove much simpler to analyse, and it turns out that it’s a good enough approximation to allow us to do a good job.
 					</p>
-					<audio controls id = "110Hz_Recording">
-						<source src = "audio/110Hz.mp3" type = "audio/mpeg"/>
-						<p class = "audioAlt">
-							Your browser doesn't support HTML5 audio.
-							This audio clip is of a pure 110Hz sine wave.
-						</p>
-					</audio>
+					<div id = "110Hz_Recording">
+						<audio controls>
+							<source src = "audio/110Hz.mp3" type = "audio/mpeg"/>
+							<p class = "audioAlt">
+								Your browser doesn't support HTML5 audio.
+								This audio clip is of a pure 110Hz sine wave.
+							</p>
+						</audio>
+						<figcaption>Pure 110Hz Sine Wave</figcaption>
+					</div>
 					<figure id = "idealisedWaveform">
 						<img src = "figures/Idealised_waveform.png" alt = "An idealised 110Hz waveform"></img>
 						<figcaption>A simplified audio signal waveform at \(110Hz\)</figcaption>
