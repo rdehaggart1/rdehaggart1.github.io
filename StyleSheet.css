@@ -401,6 +401,7 @@ audio:focus {
 	{
 		width: 0%;
 		opacity: 95%;
+		text-align: center;
 	}
 	.main 
 	{
