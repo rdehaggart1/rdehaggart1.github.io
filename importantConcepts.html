@@ -93,6 +93,17 @@
 						<p>
 							Now that we have some understanding of impedance, we have to touch on a <b>VERY IMPORTANT THING</b>. As well as the impedance that exists all around our pedal circuitry, <b>we must also consider what is happening at the output of our guitar, and at the input of out amplifier!!!</b>
 						</p> 
+						<p>
+							The reason for this is that the <i>source</i> (or the input - our guitar), and the <i>load</i> (or the output - the amplifier), each have some impedance at their connections. It's also true that any effects pedal will have a source and a load impedance, though conveniently they're usually designed to have <b>high input impedance</b>, and <b>low output impedance</b>, just like our amplifier and guitar respectively. We'll just focus on the guitar output as the source, and the amplifier input as the load.
+						</p>
+						<p>
+							Earlier, we had <a href = "whatIsASignal.html" target = "_blank">a quick discussion</a> about pickups. A pickup is essentially some magnets and a coil of wire, and a coil of wire is essentially an inductor. And just to keep things interesting, the coil of wire also has a resistance and a capacitance...  We also have our tone and volume circuits introducing some impedance too. All that this means is that we have to consider the effect that the internal circuitry has on our signal. The fun doesn't stop there, either - the cables we use will also present some impedance (primarily in the form of capacitance). These are all contributing factors to the source impedance, and so if we represent the induced voltage in the pickups as an AC signal source, our equivalent circuit might look something like this: 
+						</p>
+						<figure>
+						</figure>
+						<p>
+							Bearing in mind all that we know about <a href = "#impedance" onclick = "expandElement('impedance')">reactance</a>, obviously the source impedance will vary with frequency. For any particular guitar, it will also vary with the selected pickups, volume and tone control positions, and the length of the cable. Further still, different pickups and different components in the volume and control circuits will have significant effects on the source impedance. It seems a bit silly to try and put a single number on this value, but we're going to do it anyway. For a guitar with passive, single-coil pickups, with tone and volume pots of size \(\approx 250k\Omega\) each at their 'maximum' position, <b>we might expect a source impedance of \(\approx 10k\Omega\)</b>. This is a value that we'll take as our assumed source impedance throughout our designs, but it is well worth remembering that this is highly variable. 
+						</p>
 				</div>
 				
 				<button class = "collapsible" id = "voltageDividers" onclick = "smoothScroll(document.getElementById('voltageDividers'))">Voltage Dividers</button>
