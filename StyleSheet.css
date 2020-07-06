@@ -422,10 +422,22 @@ audio:focus {
 	.headerTab
 	{
 		font-size: 12px;
+		width: 7%;
+	}
+	.menuToggle
+	{
+		height: 73%;
+		width: 9%;
+	}
+	.headerImg
+	{
+		height: 90%;
+		margin-left: 10%;
 	}
 	#searchBar
 	{
 		font-size: 14px;
+		padding-left: 6%;
 	}
 	audio
 	{

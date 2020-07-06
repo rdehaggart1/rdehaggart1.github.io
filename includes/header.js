@@ -20,7 +20,7 @@ document.write("var sideNavWidth = \"100%\";");
 document.write("var marginLeftWidth = \"0%\";");
 document.write("var marginLeftWidthOff = \"0%\";");
 document.write("}");
-document.write("if([\"0px\", \"0%\", \"0\"].includes(sideNav.style.width))");
+document.write("if([\"0px\", \"0%\", \"0\", \"\"].includes(sideNav.style.width))");
 document.write("{");
 document.write("sideNav.style.width = sideNavWidth;");
 document.write("main.style.marginLeft = marginLeftWidth;");
