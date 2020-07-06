@@ -67,6 +67,8 @@ hr.orangeRow
   background-color: #eef;
   overflow-x: hidden;
   padding-top: 10px;
+  
+  transition: 0.5s;
 }
 .sidenav a 
 {
@@ -202,6 +204,7 @@ a.current
 	padding: 1% 0px 1% 0px;
 	background-color: #eee;
 	font-size: 16px;
+	transition: 0.5s
 }
 .button 
 {
@@ -396,7 +399,7 @@ audio:focus {
 {
 	.sidenav 
 	{
-		display: none;
+		width: 0%;
 	}
 	.main 
 	{
