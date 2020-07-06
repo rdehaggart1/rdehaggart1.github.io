@@ -15,6 +15,9 @@ body
 	text-align: justify;
 	background-color: #fff;
 	font-size: 1.25vw;
+	
+	transition: margin-left .5s;
+}
 }
 .firstPerson
 {
@@ -56,10 +59,10 @@ hr.orangeRow
 {
   height: 100%;
   float: left;
-  position: sticky;
+  position: relative;
   width: 15%;
   z-index: 1;
-  top: 0;
+  top: 8vh + 1%;
   left: 0;
   background-color: #eef;
   overflow-x: hidden;
@@ -72,6 +75,7 @@ hr.orangeRow
   font-size: 1.3vw;
   color: #818181;
   display: block;
+  transition: 0.3s;
 }
 .sidenav a:hover 
 {
@@ -98,17 +102,27 @@ a.current
 	margin-bottom: 1%;
     text-align: center;
 }
+.menuToggle
+{
+	top: 0;
+	bottom: 0;
+	height: 70%;
+	width: 4%;
+	margin: auto;
+	position: absolute;
+	float: left;
+	cursor: pointer;
+}
 .headerImg
 {
 	top: 0;
 	bottom: 0;
 	height: 90%;
 	width: auto;
-	
 	margin: auto;
 	
-	float: left;
 	position: absolute;
+	margin-left: 5%;
 }
 .headerTab
 {
@@ -399,6 +413,10 @@ audio:focus {
 	.headerTab
 	{
 		font-size: 12px;
+	}
+	#searchBar
+	{
+		font-size: 14px;
 	}
 	audio
 	{
