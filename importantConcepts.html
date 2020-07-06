@@ -47,9 +47,9 @@
 						In our circuits, potentiometers will be fairly common, and so we'll use those where possible. If we house our pedals in metal enclosures, we can connect to our chassis for grounding. If neither of these options are available, we should still be ok. We're still connected to the amplifier and the guitar grounds via the jack sockets and the jack plug <i>Sleeve</i> connections, and so as long as they've been grounded well, we should be alright... Wherever possible though, <b>please properly ground your circuits!!</b>
 					</p>
 				</div>
-				<button class = "collapsible" id = "activeOrPassive" onclick = "smoothScroll(document.getElementById('activeOrPassive'))">Active or Passive?</button>
+				<button class = "collapsible" id = "activeAndPassive" onclick = "smoothScroll(document.getElementById('activeOrPassive'))">Active and Passive</button>
 				<div class = "collapsibleContent">
-					<h4>Active or Passive?</h4>
+					<h4>Active and Passive</h4>
 						<p>
 							This one is nice and simple. The circuits we'll look at will have both active and passive components. 
 						</p>
@@ -103,6 +103,15 @@
 				<button class = "collapsible" id = "DCBiasing" onclick = "smoothScroll(document.getElementById('DCBiasing'))">DC Biasing</button>
 				<div class = "collapsibleContent">
 					<h4>DC Biasing</h4>
+					<p>
+						The AC voltage output from our guitar is centered around \(0V\). This means that it has zero <i>DC bias</i> (or <i>DC offset</i>). This is fine for some applications, but others require a <i>DC bias</i> to properly function. For example, operational amplifiers amplify a voltage input (according to whatever configuration you have built it in to). An op-amp is an <a href = "#activeAndPassive">active</a> component, and so this amplification is achieved by pulling current from the connected DC supply. If we have a \(9V\) battery connected to the \(+/-\) supply rails of the op-amp, the output voltage can swing between \(0V\) (<i>ground</i>), and \(9V\). This means we will not see amplification of the negative half-cycle of the input, as it is outside of this range.
+					</p>
+					<p>
+						There are a couple of solutions to this problem. One is to use two power supplies, connecting the positive terminal of one to the negative terminal of the other. In the case of a \(9V\) battery, this creates a supply with \(18V\) between it's terminals. We can then ground the junction between the two batteries, so our op-amp positive supply is at \(+9V\), and the negative supply is at \(-9V\), allowing us to amplify the full cycle of our unbiased input.
+					</p>
+					<p>
+						We'll focus on a different solution, however, as it's easier than using two supplies. Since, with a single power supply, our output can only swing between \(0V\) and \(9V\), we can actually push our input up to the middle of this range. This way, a signal with peaks at \(+500mV\) and \(-500mV\) can be <i>biased</i> by \(4.5V\) (half of the \(9V\) supply), to become a signal with peaks at \(5V\) and \(4V\).
+					</p>
 				</div>
 				
 				<button class = "collapsible" id = "currentLimitingResistors" onclick = "smoothScroll(document.getElementById('currentLimitingResistors'))">Current Limiting Resistors</button>
