@@ -42,3 +42,15 @@ document.write("var section = myRegExp.exec(window.location.href)[1];");
 document.write("document.getElementById(section).click();");
 document.write("});");
 document.write("</script>");
+
+document.write("<script>");
+document.write("expandElement = function(target)");
+document.write("{");
+document.write("var targetElement = document.getElementById(target);");
+document.write("var elementClass = targetElement.className;");
+document.write("if(!elementClass.includes(\"active\"))");
+document.write("{");
+document.write("targetElement.click();");
+document.write("}");
+document.write("};");
+document.write("</script>");

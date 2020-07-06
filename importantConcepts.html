@@ -104,7 +104,7 @@
 				<div class = "collapsibleContent">
 					<h4>DC Biasing</h4>
 					<p>
-						The AC voltage output from our guitar is centered around \(0V\). This means that it has zero <i>DC bias</i> (or <i>DC offset</i>). This is fine for some applications, but others require a <i>DC bias</i> to properly function. For example, operational amplifiers amplify a voltage input (according to whatever configuration you have built it in to). An op-amp is an <a href = "#activeAndPassive">active</a> component, and so this amplification is achieved by pulling current from the connected DC supply. If we have a \(9V\) battery connected to the \(+/-\) supply rails of the op-amp, the output voltage can swing between \(0V\) (<i>ground</i>), and \(9V\). This means we will not see amplification of the negative half-cycle of the input, as it is outside of this range.
+						The AC voltage output from our guitar is centered around \(0V\). This means that it has zero <i>DC bias</i> (or <i>DC offset</i>). This is fine for some applications, but others require a <i>DC bias</i> to properly function. For example, operational amplifiers amplify a voltage input (according to whatever configuration you have built it in to). An op-amp is an <a href = "#activeAndPassive" onclick = "expandElement('activeAndPassive');">active</a> component, and so this amplification is achieved by pulling current from the connected DC supply. If we have a \(9V\) battery connected to the \(+/-\) supply rails of the op-amp, the output voltage can swing between \(0V\) (<i>ground</i>), and \(9V\). This means we will not see amplification of the negative half-cycle of the input, as it is outside of this range.
 					</p>
 					<p>
 						There are a couple of solutions to this problem. One is to use two power supplies, connecting the positive terminal of one to the negative terminal of the other. In the case of a \(9V\) battery, this creates a supply with \(18V\) between it's terminals. We can then ground the junction between the two batteries, so our op-amp positive supply is at \(+9V\), and the negative supply is at \(-9V\), allowing us to amplify the full cycle of our unbiased input.
@@ -129,10 +129,10 @@
 						There's a common phenomenon in guitar effects pedals - an audible <i>pop</i> noise when you un-bypass an effect by stomping it back into it's on state. This is something that's easily avoided by simply adding a resistor just on the inboard side of any switches.
 					</p>
 					<p>
-						As we saw in the <a href = "#impedance" onclick = "document.getElementById('impedance').click();">impedance</a> section, a capacitor 'blocks' direct current from flowing through it. This may be true for an ideal capacitor, but in the real world, things aren't so convenient. In reality, a capacitor will actually 'leak' a small amount of direct current through itself, from the higher potential port to the lower. This leakage current is essentially the cause of this switching pop. 
+						As we saw in the <a href = "#impedance" onclick = "expandElement('impedance');">impedance</a> section, a capacitor 'blocks' direct current from flowing through it. This may be true for an ideal capacitor, but in the real world, things aren't so convenient. In reality, a capacitor will actually 'leak' a small amount of direct current through itself, from the higher potential port to the lower. This leakage current is essentially the cause of this switching pop. 
 					</p>
 					<p>
-						Let's say we have a <a href = "#couplingCapacitors" onclick = "document.getElementById('couplingCapacitors').click();">coupling capacitor</a> in series with our input in order to add a <i>DC bias</i> to the AC signal. If we bypass the effect, we are leaving one leg of the capacitor 'floating' (disconnected), but the other leg is still connected to our biasing voltage. Initially, the floating leg will be at whatever potential the input was at when we disconnected (somewhere around \(0V\)). This potential difference forces the leakage current through the capacitor, gradually increasing the potential of the floating leg, until both legs are at the same potential (the biasing voltage). Our AC signal has a DC offset of \(0V\), and so when we switch the effect back on, there is a sudden rush of current through the load as the biasing voltage comes into contact with a much lower voltage, which is then amplified etc. and we hear that not-so-attractive pop.
+						Let's say we have a <a href = "#couplingCapacitors" onclick = "expandElement('couplingCapacitors');">coupling capacitor</a> in series with our input in order to add a <i>DC bias</i> to the AC signal. If we bypass the effect, we are leaving one leg of the capacitor 'floating' (disconnected), but the other leg is still connected to our biasing voltage. Initially, the floating leg will be at whatever potential the input was at when we disconnected (somewhere around \(0V\)). This potential difference forces the leakage current through the capacitor, gradually increasing the potential of the floating leg, until both legs are at the same potential (the biasing voltage). Our AC signal has a DC offset of \(0V\), and so when we switch the effect back on, there is a sudden rush of current through the load as the biasing voltage comes into contact with a much lower voltage, which is then amplified etc. and we hear that not-so-attractive pop.
 					</p>
 					<p>
 						The solution to this is a pull-down resistor.
@@ -143,10 +143,10 @@
 				<div class = "collapsibleContent">
 					<h4>Coupling Capacitors</h4>
 					<p>
-						So we know that <a href = "#impedance" onclick = "document.getElementById('impedance').click();">capacitors 'block' direct current</a>. This is a really useful property when it comes to designing guitar effects pedals. Our AC input signal is centered around \(0V\), meaning it has no DC offset. For some applications, however, we need to add a DC offset to our signal so that it's instead centered around \(4.5V\), for example.
+						So we know that <a href = "#impedance" onclick = "expandElement('impedance');">capacitors 'block' direct current</a>. This is a really useful property when it comes to designing guitar effects pedals. Our AC input signal is centered around \(0V\), meaning it has no DC offset. For some applications, however, we need to add a DC offset to our signal so that it's instead centered around \(4.5V\), for example.
 					</p>
 					<p>
-						The biasing voltage can be easily achieved by using a <a href = "#voltageDividers" onclick = "document.getElementById('voltageDividers').click();">voltage divider</a> to give us some fraction of a DC supply (like a \(9V\) battery). 
+						The biasing voltage can be easily achieved by using a <a href = "#voltageDividers" onclick = "expandElement('voltageDividers')">voltage divider</a> to give us some fraction of a DC supply (like a \(9V\) battery). 
 					</p>
 				</div>
 				
