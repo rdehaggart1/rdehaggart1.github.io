@@ -21,60 +21,86 @@
 				<p>
 					Now we're getting somewhere. We have some understanding of how components are used to achieve particular functions, and we should probably illustrate this in a real example. The <i><a href = "https://www.jimdunlop.com/mxr-distortion/" target = "_blank">MXR Distortion+</a></i> is a distortion pedal (<i>shock</i>). 
 				</p>
-				<h4>What is Distortion?</h4>
-				<p>
-					Distortion is the blanket term given to <i>overdrive</i>, <i>distortion</i>, <i>crunch</i>, <i>fuzz</i>, and other similar effects. <b>It is characterised by the 'clipping' of the audio wave peaks and troughs</b>. Distortion was originally achieved by pushing the amplifier beyond its design limits - turning the gain way up so that the amplifier is trying to output a voltage higher than it is capable of. The voltage output then 'saturates' and clips the tops and bottoms of the signal to this maximum output level. 
-				</p>
-				<p>
-					Initially the tubes in a <a href = "https://en.wikipedia.org/wiki/Valve_amplifier" target = "_blank">tube (or valve) amplifier</a> were overdriven to distort the signal, but most amplifiers manufactured today use <a href = "https://en.wikipedia.org/wiki/Guitar_amplifier#Solid-state" target = "_blank">semiconductor (solid-state)</a> devices to amplify the signal, and myriad dedicated distortion effects pedals exist to distort the signal with much more flexibility and control than just whacking the gain up to its maximum. There will always be a debate about whether or not tube distortion is superior to the solid-state distortion we frequently see today, and really it all comes down to personal preference. Tubes aren't so commonplace these days and are often expensive and tricky to work into a small circuit like the ones we're looking at, so whilst tube distortion pedals <a href = "https://shop.fender.com/en-GB/effects-pedals/boost-gain/mtg-tube-distortion-pedal/0234539000.html?rl=en_US" target = "_blank">do exist</a>, we'll focus on solid-state pedals like the <i>MXR Distortion+</i>.
-				</p>
-				<p>
-					Clipping can either be <i>hard</i> (typical of solid-state circuits) or <i>soft</i> (typical of tube circuits). We can see the (admittedly quite subtle) difference in the below plots and audio clips. 
-				</p>
-				
-				<div id = "hardClipRecording">
-					<figure id = "hardClippedWave">
-						<img src = "figures/hardClipped.png" alt = "a hard-clipped 110Hz wave"></img>
-						<audio controls>
-							<source src = "audio/hardClipWave.mp3" type = "audio/mpeg"/>
-							<p class = "audioAlt">
-								Your browser doesn't support HTML5 audio.
-								This audio clip is of a pure 110Hz sine wave moving in to hard-clipping distortion.
-							</p>
-						</audio>
-						<figcaption>A 110Hz sine wave with 'hard-clipping' distortion as the amplitude increases past 1.</figcaption>
-					</figure>
+				<div id = "whatIsDistortion">
+					<h4>What is Distortion?</h4>
+					<p>
+						Distortion is the blanket term given to <i>overdrive</i>, <i>distortion</i>, <i>crunch</i>, <i>fuzz</i>, and other similar effects. <b>It is characterised by the 'clipping' of the audio wave peaks and troughs</b>. Distortion was originally achieved by pushing the amplifier beyond its design limits - turning the gain way up so that the amplifier is trying to output a voltage higher than it is capable of. The voltage output then 'saturates' and clips the tops and bottoms of the signal to this maximum output level. 
+					</p>
+					<p>
+						Initially the tubes in a <a href = "https://en.wikipedia.org/wiki/Valve_amplifier" target = "_blank">tube (or valve) amplifier</a> were overdriven to distort the signal, but most amplifiers manufactured today use <a href = "https://en.wikipedia.org/wiki/Guitar_amplifier#Solid-state" target = "_blank">semiconductor (solid-state)</a> devices to amplify the signal, and myriad dedicated distortion effects pedals exist to distort the signal with much more flexibility and control than just whacking the gain up to its maximum. There will always be a debate about whether or not tube distortion is superior to the solid-state distortion we frequently see today, and really it all comes down to personal preference. Tubes aren't so commonplace these days and are often expensive and tricky to work into a small circuit like the ones we're looking at, so whilst tube distortion pedals <a href = "https://shop.fender.com/en-GB/effects-pedals/boost-gain/mtg-tube-distortion-pedal/0234539000.html?rl=en_US" target = "_blank">do exist</a>, we'll focus on solid-state pedals like the <i>MXR Distortion+</i>.
+					</p>
+					<p>
+						Clipping can either be <i>hard</i> (typical of solid-state circuits) or <i>soft</i> (typical of tube circuits). We can see the (admittedly quite subtle) difference in the below plots and audio clips. 
+					</p>
+					
+					<p>
+						Let's investigate hard- and soft-clipping, plus an unclipped wave for reference:
+					</p>
+					<div id = "noClipRecording">
+						<h5>No cliping</h5>
+						<figure id = "unclippedWave">
+							<audio controls>
+								<source src = "audio/noClipWave.mp3" type = "audio/mpeg"/>
+								<p class = "audioAlt">
+									Your browser doesn't support HTML5 audio.
+									This audio clip is of a pure 110Hz sine wave with no distortion.
+								</p>
+							</audio>
+							<figcaption>A 110Hz sine wave with no distortion, for comparison.</figcaption>
+						</figure>
+					</div>
+					
+					<div id = "hardClipRecording">
+						<h5>Hard clipping</h5>
+						<figure id = "hardClippedWave">
+							<img src = "figures/hardClipped.png" alt = "a hard-clipped 110Hz wave"></img>
+							<audio controls>
+								<source src = "audio/hardClipWave.mp3" type = "audio/mpeg"/>
+								<p class = "audioAlt">
+									Your browser doesn't support HTML5 audio.
+									This audio clip is of a pure 110Hz sine wave moving in to hard-clipping distortion.
+								</p>
+							</audio>
+							<figcaption>A 110Hz sine wave with 'hard-clipping' distortion as the amplitude increases past 1.</figcaption>
+						</figure>
+					</div>
+					
+					<div id = "softClipRecording">
+						<h5>Soft clipping</h5>
+						<figure id = "softClippedWave">
+							<img src = "figures/softClipped.png" alt = "a soft-clipped 110Hz wave"></img>
+							<audio controls>
+								<source src = "audio/softClipWave.mp3" type = "audio/mpeg"/>
+								<p class = "audioAlt">
+									Your browser doesn't support HTML5 audio.
+									This audio clip is of a pure 110Hz sine wave moving in to soft-clipping distortion.
+								</p>
+							</audio>
+							<figcaption>A 110Hz sine wave with 'soft-clipping' distortion as the amplitude increases past 1.</figcaption>
+						</figure>
+					</div>
+					
+					<p>
+						The peak amplitude of each of those recordings is approximately the same, though you'll notice the distortion tracks <i>seem</i> a lot louder. If you want a technical explanation for this: <b>the truncation of the peaks means the total area underneath the audio waveform is greater, and so there is a greater power output from the amplifier</b>. You might also recognise that the shape of the clipped waveform is looking a bit more like a square wave, and this tells us that clipping the waveforms has introduced higher frequency harmonics.
+					</p>
 				</div>
 				
-				<div id = "softClipRecording">
-					<figure id = "softClippedWave">
-						<img src = "figures/softClipped.png" alt = "a soft-clipped 110Hz wave"></img>
-						<audio controls>
-							<source src = "audio/softClipWave.mp3" type = "audio/mpeg"/>
-							<p class = "audioAlt">
-								Your browser doesn't support HTML5 audio.
-								This audio clip is of a pure 110Hz sine wave moving in to soft-clipping distortion.
-							</p>
-						</audio>
-						<figcaption>A 110Hz sine wave with 'soft-clipping' distortion as the amplitude increases past 1.</figcaption>
+				<div id = "MXRDPlus">
+					<h4>The MXR Distortion+</h4>
+					<figure id = "mxrSchematic">
+						<img src = "figures/mxrDistortionPlus.png" alt = "The MXR Distortion+ Schematic"></img>
+						<figcaption>The schematic of an <i>MXR Distortion+</i> pedal</figcaption>
 					</figure>
+					
+					<p><i>R1</i> is a <a href = "importantConcepts.html#pullDownResistors" target = "_blank">pull down resistor</a>.</p> 
+					<p><i>R2</i> and <i>R3</i> form a <a href = "importantConcepts.html#voltageDividers" target = "_blank">potential divider</a>, and create a DC bias voltage</p>
+					<p><i>C2</i> is a <a href = "importantConcepts.html#couplingCapacitors" target = "_blank">coupling capacitor</a>.</p>
+					<p><i>C1</i> is a power supply <a href = "importantConcepts.html#smoothingCapacitors" target = "_blank">smoothing capacitor</a>, and is required because this is a <i>real</i> circuit, connected to a <i>real</i> power supply.</p>
+					<p><i>R4</i> complicated</p>
+					<p><i>R5</i> is a <a href = "importantConcepts.html#currentLimitingResistors" target = "_blank">current limiting resistor</a>, that will protect the sensetive operational amplifier from electro-static discharge (ESD). If the guitar lead is plugged in to the pedal but is left disconnected at the other end, a static charge could build up on the plug ... </p>
+					<p><i>C3</i> forms a <a href = "importantConcepts.html#frequencyFilters" target = "_blank">low-pass filter</a> in combination with the source impedance. This acts to reduce high frequency noise on the input.</p>
 				</div>
-				
-				<h4>The MXR Distortion+</h4>
-				<figure id = "mxrSchematic">
-					<img src = "figures/mxrDistortionPlus.png" alt = "The MXR Distortion+ Schematic"></img>
-					<figcaption>The schematic of an <i>MXR Distortion+</i> pedal</figcaption>
-				</figure>
-				
-				<p><i>R1</i> is a <a href = "importantConcepts.html#pullDownResistors" target = "_blank">pull down resistor</a>.</p> 
-				<p><i>R2</i> and <i>R3</i> form a <a href = "importantConcepts.html#voltageDividers" target = "_blank">potential divider</a>, and create a DC bias voltage</p>
-				<p><i>C2</i> is a <a href = "importantConcepts.html#couplingCapacitors" target = "_blank">coupling capacitor</a>.</p>
-				<p><i>C1</i> is a power supply <a href = "importantConcepts.html#smoothingCapacitors" target = "_blank">smoothing capacitor</a>, and is required because this is a <i>real</i> circuit, connected to a <i>real</i> power supply.</p>
-				<p><i>R4</i> complicated</p>
-				<p><i>R5</i> is a <a href = "importantConcepts.html#currentLimitingResistors" target = "_blank">current limiting resistor</a>, that will protect the sensetive operational amplifier from electro-static discharge (ESD). If the guitar lead is plugged in to the pedal but is left disconnected at the other end, a static charge could build up on the plug ... </p>
-				<p><i>C3</i> forms a <a href = "importantConcepts.html#frequencyFilters" target = "_blank">low-pass filter</a> in combination with the source impedance. This acts to reduce high frequency noise on the input.</p>
 			</div>
-			
 		</div>
 		
 		<script type="text/javascript" src="includes/navButtons.js"></script>
