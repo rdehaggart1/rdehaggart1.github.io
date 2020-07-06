@@ -109,8 +109,8 @@ a.current
 {
 	top: 0;
 	bottom: 0;
-	height: 80%;
-	width: 5%;
+	height: 70%;
+	width: 4%;
 	margin: auto;
 	position: absolute;
 	float: left;
@@ -125,7 +125,7 @@ a.current
 	margin: auto;
 	
 	position: absolute;
-	margin-left: 6%;
+	margin-left: 5%;
 }
 .headerTab
 {
