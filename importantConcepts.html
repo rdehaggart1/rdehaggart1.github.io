@@ -86,6 +86,11 @@
 							Inductors are essentially the opposite in this sense. Their reactance increases as the frequency increases.
 						</p>
 				</div>		
+						
+				<button class = "collapsible" id = "voltageDividers" onclick = "smoothScroll(document.getElementById('voltageDividers'))">Voltage Dividers</button>
+				<div class = "collapsibleContent">
+					<h4>Voltage Dividers</h4>
+				</div>
 				
 				<button class = "collapsible" id = "sourceAndLoadImpedance" onclick = "smoothScroll(document.getElementById('sourceAndLoadImpedance'))">Source and Load Impedance</button>
 				<div class = "collapsibleContent">
@@ -102,13 +107,11 @@
 						<figure>
 						</figure>
 						<p>
-							Bearing in mind all that we know about <a href = "#impedance" onclick = "expandElement('impedance')">reactance</a>, obviously the source impedance will vary with frequency. For any particular guitar, it will also vary with the selected pickups, volume and tone control positions, and the length of the cable. Further still, different pickups and different components in the volume and control circuits will have significant effects on the source impedance. It seems a bit silly to try and put a single number on this value, but we're going to do it anyway. For a guitar with passive, single-coil pickups, with tone and volume pots of size \(\approx 250k\Omega\) each at their 'maximum' position, <b>we might expect a source impedance of \(\approx 10k\Omega\)</b>. This is a value that we'll take as our assumed source impedance throughout our designs, but it is well worth remembering that this is highly variable. 
+							Bearing in mind all that we know about <a href = "#impedance" onclick = "expandElement('impedance')">reactance</a>, obviously the source impedance will vary with frequency. For any particular guitar, it will also vary with the selected pickups, volume and tone control positions, and the length of the cable. Further still, different pickups and different components in the volume and control circuits will have significant effects on the source impedance. It seems a bit silly to try and put a single number on this value, but we're going to do it anyway. For a guitar with passive, single-coil pickups, with tone and volume pots of size \(\approx 250k\Omega\) each at their 'maximum' position, <b>we might expect a source impedance of \(\approx 10k\Omega\) in series with our AC signal</b>. This is a value that we'll take as our assumed source impedance throughout our designs, but it is well worth remembering that this is highly variable. 
 						</p>
-				</div>
-				
-				<button class = "collapsible" id = "voltageDividers" onclick = "smoothScroll(document.getElementById('voltageDividers'))">Voltage Dividers</button>
-				<div class = "collapsibleContent">
-					<h4>Voltage Dividers</h4>
+						<p>
+							With \(10k\Omega\) in series with our AC signal, we need to consider how we'll minimise the effect that this has on the strength of our signal. Now of course, we need to apply a load to our source. All this means is that we need some impedance between our signal and ground so that we aren't shorting the output of the source. Practically, this is simply done by introducing some <i>input impedance</i> between our signal line and ground. By loading our source, we actually create a <a href = "#voltageDividers" onclick = "expandElement('voltageDividers');">voltage divider</a> with the source and load impedances. Since the next element in the signal chain - whether effects pedal or amplifier - will essentally be measuring the signal across this input impedance, we need to make sure the majority of the voltage drop occurs over the input impedance, and a minimal voltage drop occurs over the source impdance. 
+						</p>
 				</div>
 				
 				<button class = "collapsible" id = "DCBiasing" onclick = "smoothScroll(document.getElementById('DCBiasing'))">DC Biasing</button>
