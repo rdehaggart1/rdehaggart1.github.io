@@ -17,18 +17,31 @@
 			<div id = "whatIsASignal">
 				<h3>What is a Signal?</h3>
 				<p>
-					First things first: <b>a ‘signal’ is a voltage</b>, and it is the output from your guitar - this is important to understand. This signal carries the information about what you’re playing and how you’re playing it. It’s then manipulated by the circuitry inside the guitar, then by the effects pedal(s) circutry, then again by the amplifier, and is eventually converted into a sound wave by the loudspeaker. At a very high level, everything from plucking an electric guitar string, to some (hopefully expected) sound coming out of the loudspeaker is relatively simple. To keep a lid on things, we’ll make some simplifications [In an appendix, worth doing a full detailed path of this?].
+					First things first: <b>a ‘signal’ is a voltage</b>, and it is the output from your guitar - this is important to understand. This signal 
+					carries the information about what you’re playing and how you’re playing it. It’s then manipulated by the circuitry inside the guitar, 
+					then by the effects pedal(s) circutry, then again by the amplifier, and is eventually converted into a sound wave by the loudspeaker. 
+					At a very high level, everything from plucking an electric guitar string, to some (hopefully expected) sound coming out of the loudspeaker 
+					is relatively simple. To keep a lid on things, we’ll make some simplifications.
 				</p>
 				<p>
 					The need-to-know points are as follows:
 					<ul>
 						<li><b>When you ‘pluck’ a guitar string, you induce a vibration on the string</b>.</li>
-						<li>This motion sets up a transverse [link] pressure wave through the air that we can hear, even when the guitar is unplugged. At this point, we have an audible sound, but no audio signal to pass to the rest of the circuit.</li>
-						<li>Pickups convert the vibrations of the guitar strings into an audio signal. This might sound like magic, depending on how familiar you are with electromagnetic induction. What you need to know is that <b>as a string vibrates over the pickup, an alternating voltage is created in the guitar circuitry – an electrical representation of the note you’ve just played</b>. The voltage is a sinusoidal oscillation with a frequency equal to the frequency of the guitar string vibration, and an amplitude that relates to how ‘hard’ the string is vibrating [see appendix for detailed explanation – amplitude relates to speed (faraday/lenz) and if amplitude of vibration is higher, speed of nodes is higher at centre point].</li>
+						<li>This motion sets up a <a href = "https://en.wikipedia.org/wiki/Transverse_wave#:~:text=In%20physics%2C%20a%20transverse%20wave,other%20end%20up%20and%20down." target = "_blank">
+						transverse pressure wave</a> through the air that we can hear, even when the guitar is unplugged. At this point, we have an audible 
+						sound, but no audio signal to pass to the rest of the circuit.</li>
+						<li>Pickups convert the vibrations of the guitar strings into an audio signal. This might sound like magic, depending on how familiar 
+						you are with electromagnetic induction. What you need to know is that <b>as a string vibrates over the pickup, an alternating voltage 
+						is created in the guitar circuitry, and this voltage is an electrical representation of the note you’ve just played</b>. The 
+						voltage is a sinusoidal oscillation with a frequency equal to the frequency of the guitar string vibration, and an amplitude that 
+						relates to how ‘hard’ the string is vibrating [see appendix for detailed explanation – amplitude relates to speed (faraday/lenz) and 
+						if amplitude of vibration is higher, speed of nodes is higher at centre point].</li>
 					</ul>
 				</p>
 				<p>
-					Below is an illustration of the basic principle. As the string oscillates back and forth, so too does the voltage induced in the pickups. A full understanding of this concept is not necessary. It has been presented here for completeness as we paint the picture of what causes the input to our pedals
+					Below is an illustration of the basic principle. As the string oscillates back and forth, so too does the voltage induced in the pickups. 
+					A full understanding of this concept is not necessary. It has been presented here for completeness as we paint the picture of what causes 
+					the input to our pedals
 				</p>
 				<figure id = "pickupOperation">
 					<img src = "figures/inducedVoltagePickups.jpg" alt = "Basic pickup operation"></img>
