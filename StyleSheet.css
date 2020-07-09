@@ -449,3 +449,29 @@ audio:focus {
 	vertical-align: top;
 	padding-right: 1%;
 }	
+
+/* INGREDIENTS LIST */
+.ingredients
+{
+	font-size: 20px;
+	background-color: rgba(100, 100, 255 , 0.2);
+	border: solid #adadee;
+	width: 40%;
+	white-space: nowrap;
+	margin-top: 3%;
+}
+.ingredients td
+{
+	padding: 5%;
+}
+.ingredients tr:nth-child(2n)
+{
+	background-color: rgba(100, 100, 255 , 0.3);
+}
+.recipeIcon
+{
+	display: block;
+	margin-left: 5%;
+	margin-right: 5%;
+	padding: 0;
+}
