@@ -15,7 +15,13 @@
 			<script type="text/javascript" src="includes/title.js"></script>
 			<h3>Basic Overdrive Pedal</h3>
 			<p>
-				Now we'll look at how to construct a 'basic' overdrive pedal.
+				Now we'll look at how to construct a 'basic' overdrive pedal. There's nothing particularly fancy or special about this pedal, but it will
+				function as a nice overdrive with some good tunability.
+			</p>
+			<p>
+				We'll start things nice and simple, looking at an overdrive circuit with one control (<i>gain</i>), and no 'on/off' switch. Clearly this isn't
+				much use - if you decide you dont want overdrive, it's a bit annoying to have to lean down and twist your gain control to minimum... However,
+				this way we can start off simple, then make some mods to give it some more functionality.
 			</p>
 			
 			<div id = "ingredients">
@@ -24,7 +30,7 @@
 				<table class = "ingredients">
 					<tr>
 						<td>Jack Socket x2</td>
-						<td></td>
+						<td><img class = "recipeIcon" src = "images/componentIcons/jackSocket.png" /></td>
 					</tr>
 					<tr>
 						<td>Resistor</td>
@@ -40,7 +46,7 @@
 					</tr>
 					<tr>
 						<td>\(1M\Omega\) Potentiometer x1</td>
-						<td></td>
+						<td><img class = "recipeIcon" src = "images/componentIcons/potentiometer.png" /></td>
 					</tr>
 					<tr>
 						<td>Diode x2</td>
@@ -55,9 +61,49 @@
 			
 			<div id = "method">
 				<h4>Method</h4>
+				<div id = "inputStage">
+					<h5>The input stage</h5>
+					<p>
+						We're using a single, \(9V\) battery to power this pedal. This supply is used for the <i>operational amplifier</i>, an active
+						component. The op-amp can therefore output any voltage between \(0V\) and \(9V\). Our input is centred around
+						\(0V\), so in our 'perfect sine wave' simplification of the audio signal, half of our signal is at a voltage below \(0V\). If our
+						op-amp tries to amplify a negative voltage, it won't be able to, since the output can't go below the negative supply (\(0V\)).
+					</p>
+					<p>
+						It's simple enough to get around this, though! If we 'shift' our input signal so that it's no longer centred around \(0V\), but 
+						is instead centred around \(4.5V\), we can take advantage of the full op-amp output range. This 'shift' is known as a 
+						<a href = "importantConcepts.html#DCBiasing" target = "_blank">DC bias</a>. As we're using a battery, rather than a wall-wart
+						supply for this pedal, we can use a slightly simpler circuit, as batteries aren't as noisy as wall supplies.
+					</p>
+					<p>
+						CIRCUIT
+					</p>
+					<p>
+						Looks nice and easy, right? Let's have a quick chat about whats going on here.
+					</p>
+					<p>
+						<i>R1</i> and <i>R2</i> form a <a href = "importantConcepts.html#voltageDividers" target = "_blank">voltage divider</a>. Each resistor
+						is the same size (\(1M\Omega\)), and so the voltage drop across each of the two resistors is the same: \({9V \over 2}=4.5V\). 
+					</p>
+				</div>
+				<div id = "gainStage">
+					<h5>The gain stage</h5>
+				</div>
+				<div id = "overdriveStage">
+					<h5>The overdrive stage</h5>
+				</div>
+				<div id = "outputStage">
+					<h5>The output stage</h5>
+				</div>
+				<div id = "fullAssembly">
+					<h5>The full assembly</h5>
+				</div>
 			</div>
 			
-			
+			<div id = "modifications">
+				<h4>Modifications</h4>
+			</div>
+
 		</div>
 		
 		<script type="text/javascript" src="includes/navButtons.js"></script>
