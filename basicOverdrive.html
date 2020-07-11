@@ -16,7 +16,8 @@
 			<h3>Basic Overdrive Pedal</h3>
 			<p>
 				Now we'll look at how to construct a 'basic' overdrive pedal. There's nothing particularly fancy or special about this pedal, but it will
-				function as a nice overdrive with some good tunability.
+				function as a nice overdrive with some good tunability. It will look quite similar to the 
+				<a href = "mxrDistortionPlus.html" target = "_blank">MXR Distortion+</a>, but with a few changes in component sizes and configurations.
 			</p>
 			<p>
 				We'll start things nice and simple, looking at an overdrive circuit with one control (<i>gain</i>), and no 'on/off' switch. Clearly this isn't
@@ -88,6 +89,10 @@
 				</div>
 				<div id = "gainStage">
 					<h5>The gain stage</h5>
+					<p>
+						We're using an <i>operational amplifier</i> to amplify our signal. We're going to have our op-amp in a 'non-inverting' configuration,
+						meaning that the output will have the same polarity as the non-iverting (\(+\)) input.
+					</p>
 				</div>
 				<div id = "overdriveStage">
 					<h5>The overdrive stage</h5>
@@ -97,6 +102,13 @@
 				</div>
 				<div id = "fullAssembly">
 					<h5>The full assembly</h5>
+					<p>
+						alters sound:
+						<br>higher output cap value is cutting more treble & volume
+						<br>log pot maybe better?
+						<br>different diodes & diode arrangements (asymmetric, series diodes, etc.) different sound
+						<br>gain on op-amp alters output
+					</p>
 				</div>
 			</div>
 			

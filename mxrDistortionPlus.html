@@ -31,19 +31,70 @@
 						<img src = "figures/mxrDistortionPlus.png" alt = "The MXR Distortion+ Schematic"></img>
 						<figcaption>The schematic of an <i>MXR Distortion+</i> pedal</figcaption>
 					</figure>
-					<p>This version of the circuit includes some modifications (indicated with dotted connections), and doesn't include true-bypass switching.</p>
-					<p><i>R1</i> is a <a href = "importantConcepts.html#pullDownResistors" target = "_blank">pull down resistor</a>. In the image, the effect is in it's <i>on</i> state (see the switch at the bottom right of the image). When the circuit is switched <i>off</i>, the input signal goes straight to the output (as this isn't a true bypass circuit, some of the signal will also make it's way into the effect). Whilst bypassed, capacitor <i>C2</i> will begin to charge up on the outboard side due to the leakage current pushed through by the biasing voltage. Resistor <i>R1</i> provides a path to ground for the leakage current to prevent it from charging <i>C2</i>. <i>R1</i> is also large enough that it won't significantly affect the signal when the effect is <i>on</i>.</p>
-					<p><i>R2</i> and <i>R3</i> form a <a href = "importantConcepts.html#voltageDividers" target = "_blank">potential divider</a>, and create a <a href = "importantConcepts.html#DCBiasing", target = "blank">DC bias voltage</a>.</p>
-					<p><i>C2</i> is a <a href = "importantConcepts.html#couplingCapacitors" target = "_blank">coupling capacitor</a>.</p>
-					<p><i>C1</i> is a power supply <a href = "importantConcepts.html#smoothingCapacitors" target = "_blank">smoothing capacitor</a>, and is required because this is a <i>real</i> circuit, connected to a <i>real</i> power supply.</p>
-					<p><i>R4</i> complicated</p>
-					<p><i>R5</i> is a <a href = "importantConcepts.html#currentLimitingResistors" target = "_blank">current limiting resistor</a>, that will protect the sensetive operational amplifier from electro-static discharge (ESD). If the guitar lead is plugged in to the pedal but is left disconnected at the other end, a static charge could build up on the plug ... </p>
-					<p><i>C3</i> forms a <a href = "importantConcepts.html#frequencyFilters" target = "_blank">low-pass filter</a> in combination with the source impedance. This acts to reduce high frequency noise on the input.</p>
+					<p>
+						This version of the circuit includes some modifications (indicated with dotted connections), and doesn't include true-bypass switching.
+					</p>
+					<p>
+					<i>R1</i> is a <a href = "importantConcepts.html#pullDownResistors" target = "_blank">pull down resistor</a>. In the image, the effect 
+						is in it's <i>on</i> state (see the switch at the bottom right of the image). When the circuit is switched <i>off</i>, the input signal 
+						goes straight to the output (as this isn't a true bypass circuit, some of the signal will also make it's way into the effect). Whilst 
+						bypassed, capacitor <i>C2</i> will begin to charge up on the outboard side due to the leakage current pushed through by the biasing 
+						voltage. Resistor <i>R1</i> provides a path to ground for the leakage current to prevent it from charging <i>C2</i>. <i>R1</i> is also 
+						large enough that it won't significantly affect the signal when the effect is <i>on</i>.
+					</p>
+					<p>
+						<i>R2</i> and <i>R3</i> form a <a href = "importantConcepts.html#voltageDividers" target = "_blank">potential divider</a>, and create 
+						a <a href = "importantConcepts.html#DCBiasing", target = "blank">DC bias voltage</a>.
+					</p>
+					<p>
+						<i>C2</i> is a <a href = "importantConcepts.html#couplingCapacitors" target = "_blank">coupling capacitor</a>.
+					</p>
+					<p>
+						<i>C1</i> is a power supply <a href = "importantConcepts.html#smoothingCapacitors" target = "_blank">smoothing capacitor</a>, and is 
+						required because this is a <i>real</i> circuit, connected to a <i>real</i> power supply.
+					</p>
+					<p>
+						<i>R4</i> complicated
+					</p>
+					<p>
+						<i>R5</i> is a <a href = "importantConcepts.html#currentLimitingResistors" target = "_blank">current limiting resistor</a>, that will 
+						protect the sensetive operational amplifier from electro-static discharge (ESD). If the guitar lead is plugged in to the pedal but is 
+						left disconnected at the other end, a static charge could build up on the plug ... 
+					</p>
+					<p>
+						<i>C3</i> forms a <a href = "importantConcepts.html#frequencyFilters" target = "_blank">low-pass filter</a> in combination with the 
+						source impedance. This acts to reduce high frequency noise on the input.
+					</p>
 					
-					<p><i>C4</i> keeps the inverting input centred around the 4.5V bias. Without it, the DC bias would be amplified too, so the supply rails would end up clipping our signal.</p>
-					<p><i>R9</i> limits the current through the diodes (and seems to make the response symmetric?)</p>
-					<p><i>R10</i> controls the volume</p>
-				
+					<p>
+						<i>R6</i>, <i>R7</i>, and <i>R8</i> define the gain of this non-inverting op-amp configuration.
+					</p>
+					<p>
+						<i>C4</i> keeps the inverting input centred around the 4.5V bias. Without it, the DC bias would be amplified too, so the supply rails 
+						would end up clipping our signal.
+					</p>
+					<p>
+						<i>C6</i> removes our DC bias from the output signal, so the pedal output is centred around \(0V\), like the input.
+					</p>
+					<p>
+						<i>D1</i> and <i>D2</i> clip the signal to produce the 'overdrive' effect
+					</p>
+					<p>
+						<i>R9</i> limits the current through the diodes (and seems to make the response symmetric?)
+					</p>
+					<p>
+						<i>C7</i> is a filter to remove high frequency noise from the output.
+					</p>
+					<p>
+						<i>R10</i> controls the volume
+					</p>
+					<p>
+						<i>D3</i> is an 'on' indicator LED
+					</p>
+					<p>
+						<i>R11</i> is a current limiting resistor to protect <i>D3</i>, the indicator LED
+					</p>
+					
 				</div>
 			</div>
 		</div>
