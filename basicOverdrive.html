@@ -16,8 +16,9 @@
 			<h3>Basic Overdrive Pedal</h3>
 			<p>
 				Now we'll look at how to construct a 'basic' overdrive pedal. There's nothing particularly fancy or special about this pedal, but it will
-				function as a nice overdrive with some good tunability. It might look quite similar to the 
-				<a href = "mxrDistortionPlus.html" target = "_blank">MXR Distortion+</a>, but with a few changes in component sizes and configurations.
+				function as a nice overdrive (actually its maybe somewhere in between overdrive and distortion...) with some good tunability. 
+				It might look quite similar to the <a href = "mxrDistortionPlus.html" target = "_blank">MXR Distortion+</a>, but with a few changes in 
+				component sizes and configurations.
 			</p>
 			<p>
 				We'll start things nice and simple, looking at an overdrive circuit with one control (<i>gain</i>), and no 'on/off' switch. Clearly this isn't
@@ -65,51 +66,115 @@
 				<div id = "inputStage">
 					<h5>The input stage</h5>
 					<p>
-						We're using a single, \(9V\) battery to power this pedal. This supply is used for the <i>operational amplifier</i>, an active
-						component. The op-amp can therefore output any voltage between \(0V\) and \(9V\). Our input is centred around
-						\(0V\), so in our 'perfect sine wave' simplification of the audio signal, half of our signal is at a voltage below \(0V\). If our
-						op-amp tries to amplify a negative voltage, it won't be able to, since the output can't go below the negative supply (\(0V\)).
+						We're using a single, \(9V\) battery to power the <i>operational amplifier</i> in this pedal, an active component. The op-amp can 
+						therefore output any voltage between \(0V\) and \(9V\). Our input is centred around \(0V\), so in our 'perfect sine wave' 
+						simplification of the audio signal, half of our signal is at a voltage below \(0V\). If our op-amp tries to amplify a negative 
+						voltage, it won't be able to, since the output can't go below the negative supply (\(0V\)).
 					</p>
 					<p>
 						It's simple enough to get around this, though! If we 'shift' our input signal so that it's no longer centred around \(0V\), but 
 						is instead centred around \(4.5V\), we can take advantage of the full op-amp output range. This 'shift' is known as a 
-						<a href = "importantConcepts.html#DCBiasing" target = "_blank">DC bias</a>. As we're using a battery, rather than a wall-wart
-						supply for this pedal, we can use a slightly simpler circuit, as batteries aren't as noisy as wall supplies.
+						<a href = "importantConcepts.html#DCBiasing" target = "_blank">DC bias</a>. As we're using a battery for this pedal, we can use a 
+						slightly simpler circuit than if we were using a wall-wart supply, as batteries aren't as noisy as wall supplies.
 					</p>
 					<p>
-						CIRCUIT
+						<figure id = "inputStageSchematic">
+							<img src = "figures/overdriveInputStage.png" alt = "the input stage of the basic overdrive pedal"></img>
+							<figcaption>The schematic for the input stage of the basic overdrive pedal</figcaption>
+						</figure>
 					</p>
 					<p>
 						Looks nice and easy, right? Let's have a quick chat about whats going on here.
 					</p>
 					<p>
-						<i>R1</i> and <i>R2</i> form a <a href = "importantConcepts.html#voltageDividers" target = "_blank">voltage divider</a>. Each resistor
-						is the same size (\(1M\Omega\)), and so the voltage drop across each of the two resistors is the same: \({9V \over 2}=4.5V\). 
+						<i>R1</i> and <i>R2</i> form a <a href = "importantConcepts.html#voltageDividers" target = "_blank">voltage divider</a>. Both resistors
+						are the same size (\(1M\Omega\)), and so the supply voltage is evenly split to give the same drop over each: \({9V \over 2}=4.5V\). 
+						<br>Adding a \(4.5V\) DC bias to our input signal (represented as an AC voltage source in the schematic), basically means <b>adding 
+						\(4.5V\) to our signal at every point in time</b>, so that it has the same shape and peak to peak voltage level, but so it is 
+						oscillating around a centre voltage of \(4.5V\) instead of \(0V\). <br>However, we can't simply connect our source to this biasing 
+						junction between <i>R1</i> and <i>R2</i> - if we did this, the junction voltage would just be the input voltage, and <i>B1</i> would 
+						be able to force current back into our guitar. This is because
+						<a href = "importantConcepts.html#sourceAndLoadImpedance" target = "_blank">our guitar has a low impedance</a>, and so DC current 
+						would easily make it's way back to the pickups. To prevent this, we use a
+						<a href = "importantConcepts.html#couplingCapacitors" target = "_blank">coupling capacitor</a>, which blocks the DC current from
+						flowing back into our guitar (due to it's high impedance for low (or zero) frequency signals, but allows the AC current into our pedal 
+						circuit.
+						<br>***discuss how the AC signal drives current either side of the divider & changes the voltage drop - this causes bias?***
+					</p>
+					<p>
+						The size of <i>C1</i> isn't <i>that</i> important, and can be decided based on personal preference. A larger capacitor will give you a 
+						bassier response, a smaller one will cut your bass a little lower. This is because <i>C1</i> and <i>R2</i> are forming a 
+						<a href = "importantConcepts.html#frequencyFilters" target = "_blank">high-pass filter</a>. Typically you'll see <i>film capacitors</i>
+						used in coupling applications because they have lower leakage than <i>electrolytic capacitors</i>. 
+					</p>
+					<p>
+						And that's our input stage! Simple, right? Now we have a DC-biased input signal present at the junction of the voltage divider,
+						ready to be sent into the gain stage of our pedal.
 					</p>
 				</div>
 				<div id = "gainStage">
 					<h5>The gain stage</h5>
 					<p>
-						We're using an <i>operational amplifier</i> to amplify our signal. We're going to have our op-amp in a 'non-inverting' configuration,
-						meaning that the output will have the same polarity as the non-iverting (\(+\)) input. This stage is necessary to allow the diodes
-						to properly clip the signal in the <a href = "#overdriveStage">overdrive stage</a>. The output from our guitar might typically be less
-						than \(+/-0.5V\), and the diode network will only start clipping when the magnitude exceeds the forward-bias voltage drop of the 
-						configuration (usually above \(0.7V\)). By amplifying our signal, we then allow the diodes to actually clip it and create the 
-						distorted sound we're looking for.
+						We're using an <i>operational amplifier</i> to amplify our signal. We're going to have our op-amp in a <i>non-inverting</i> 
+						configuration, meaning that the output will have the same polarity as the <i>non-inverting (\(+\)) input</i>, but a greater amplitude. 
+						This stage is necessary to allow the diodes to properly clip the signal in the <a href = "#clippingStage">clipping stage</a>. The 
+						output from our guitar might typically be less than \(+/-0.5V\), and the diode network will only start clipping when the magnitude 
+						exceeds the forward-bias voltage drop of the configuration (usually above \(0.7V\)). By amplifying our signal, we then allow the 
+						diodes to actually clip the peaks and troughs to create the distorted sound we're looking for.
 					</p>
+					<p>
+						Let's look at the circuit section.
+					</p>
+						<figure id = "gainStageSchematic">
+							<img src = "figures/overdriveGainStage.png" alt = "the gain stage of the basic overdrive pedal"></img>
+							<figcaption>The schematic for the gain stage of the basic overdrive pedal</figcaption>
+						</figure>
 					<p>
 						Simply put, the operational amplifier takes our input signal at its <i>non-inverting (\(+\)) input</i>, and outputs an amplified
-						version of this. To do this, the amplifier must be connected in such a way that it creates a <i>non-inverting amplifier</i>.
-						To achieve this, we connect the output of the amplifier back to the <i>inverting (\(-\)) input</i> of the amplifier via a 
-						<a href = "importantConcepts.html#voltageDividers" target = "_blank">voltage divider</a>. 
+						version of this. To do this, the op-amp must be connected in such a way that it creates a <i>non-inverting amplifier</i>.
+						To achieve this, we connect the output of the op-amp back to the <i>inverting (\(-\)) input</i> via a 
+						<a href = "importantConcepts.html#voltageDividers" target = "_blank">voltage divider</a>. We already covered <i>non-inverting
+						amplifiers</i> in detail here, and so we wont dwell on the specifics, but all you need to know is that <b>the values of <i>R4</i> 
+						and <i>R5</i> define the gain of the amplification stage through the relationship: \(gain = 1+{R4 \over R5+X_C}\)</b>, where \(X_C\) is
+						the impedance of <i>C2</i> - we'll discuss this component a little further down. We could make a fixed-gain amplifier by using 
+						two fixed resistances here, but where's the fun in that? If we instead use a fixed resistor and a potentiometer, we can control the 
+						gain of the amplifier just by twisting a knob - neat! 
+					</p>
+					<p>
+						In our circuit, <i>R5</i> is a potentiometer with maximum resistance of \(1M\Omega\). We connect the wiper to the grounded leg
+						of the pot so that the ground-side portion of the pot is shorted, and what we have is essentially just a variable resistor. This
+						variable resistor allows us to swing our gain between \(1+{1M\Omega \over 1M\Omega} = 2\) and \(1+{1M\Omega \over 100\Omega}=10,001\).
+						<b>Note that this upper value varies with the minimum resistance possible on your potentiometer, but the point is that it's
+						<i>very high</i>. Also we've ignored the capacitance here for reasons we will discuss below</b>. 
+						<br>It's quite a good idea (though not a necessity) to use a 'reverse-log' pot for <i>R5</i>. We discussed reverse-log pots here, but
+						the key thing to know is to understand that a reverse-log pot better distributes our gain across the motion of the shaft.
+					</p>
+					<p>
+						<i>C2</i> is quite an important component in this circuit. Remember how we offset our signal up to \(4.5V\) in the
+						<a href = "#inputStage">input stage</a>? Well now we have a signal that has both DC and AC components. The gain of the op-amp,
+						if set only by <i>R4</i> and <i>R5</i>, would be the same for the AC and DC components, and so our offset would be amplified too,
+						according to the gain of the confiiguration. This risks amplifying our DC component so much that it saturates at the top of the output 
+						range (\(9V\)), and we lose the top-half of our waveform. We can re-visit the gain calculation for DC components 
+						(\(gain = 1+{R4 \over R5+X_C}=1+{R4 \over R5+{1 \over 2 \times \pi \times f \times C}}\)) and note that \(X_C\) is <i>really</i> high 
+						for DC components, meaning that for DC components, the gain approaches \(1\). The capacitor should also be large enough that it 
+						doesn't provide a high impedance to our AC frequencies of interest, too, and significantly drop our AC gain for these frequencies.
+					</p>
+					<p>
+						<i>R3</i> is simply our <a href = "importantConcepts.html#currentLimitingResistors" target = "_blank">current limiting resistor</a>,
+						and just serves as protection for our op-amp against any surges of current that might damage the semiconductor junctions within.
+						\(10k\Omega\) is a pretty standard value.
 					</p>
 				</div>
-				<div id = "overdriveStage">
-					<h5>The overdrive stage</h5>
+				<div id = "clippingStage">
+					<h5>The clipping stage</h5>
 					<p>
 						To actually create the 'distorted' sound, we can use a neat little trick using 
-						<a href = "componentsAndTools.html#diodes" target = "_blank">diodes</a>. 
+						<a href = "componentsAndTools.html#diodes" target = "_blank">diodes</a>.
 					</p>
+						<figure id = "clippingStageSchematic">
+							<img src = "figures/overdriveClippingStage.png" alt = "the clipping stage of the basic overdrive pedal"></img>
+							<figcaption>The schematic for the clipping stage of the basic overdrive pedal</figcaption>
+						</figure>
 					<p>
 						To recap: a diode will conduct current in one direction, and block it in the other. In order to conduct current in the 
 						forward-bias direction, the voltage between the two legs of the diodes must exceed what is called the 'forward-bias voltage'. Once 
@@ -145,7 +210,18 @@
 				</div>
 				<div id = "outputStage">
 					<h5>The output stage</h5>
-						As we discussed, this version of the circuit is nice and simple, so there isn't much going on at the output just yet. 
+					<p>
+						As we discussed, this version of the circuit is nice and simple, so there is <i>very</i> little going on at our output right now.
+						All we've done is added a capacitor in parallel with our clipping diodes and our output, and this is working with our current
+						limiting resistor <i>R6</i> to create a <a href = "importantConcepts.html#frequencyFilters" target = "_blank">low-pass filter</a>.
+						Using the cut-off frequency equation \(f_c={1 \over 2 \times \pi \times R \times C}\), we see that a larger capacitor will give
+						us a lower cutoff frequency - a bassier response. Again, this capacitor is a good component to experiment with - try a few
+						different values and find something you like the sound of.
+					</p>
+					<p>
+						When we start looking at how we can <a href = "#modifications">modify</a> this circuit, we'll add a volume and tone control
+						into the output stage so we have flexibility over our sound without having to change all our components.
+					</p>
 				</div>
 				<div id = "fullAssembly">
 					<h5>The full assembly</h5>
