@@ -16,13 +16,13 @@
 			<h3>Basic Overdrive Pedal</h3>
 			<p>
 				Now we'll look at how to construct a 'basic' overdrive pedal. There's nothing particularly fancy or special about this pedal, but it will
-				function as a nice overdrive with some good tunability. It will look quite similar to the 
+				function as a nice overdrive with some good tunability. It might look quite similar to the 
 				<a href = "mxrDistortionPlus.html" target = "_blank">MXR Distortion+</a>, but with a few changes in component sizes and configurations.
 			</p>
 			<p>
 				We'll start things nice and simple, looking at an overdrive circuit with one control (<i>gain</i>), and no 'on/off' switch. Clearly this isn't
 				much use - if you decide you dont want overdrive, it's a bit annoying to have to lean down and twist your gain control to minimum... However,
-				this way we can start off simple, then make some mods to give it some more functionality.
+				this way we can start off simple, then make some mods afterwards to give it some more functionality or a different sound.
 			</p>
 			
 			<div id = "ingredients">
@@ -91,29 +91,86 @@
 					<h5>The gain stage</h5>
 					<p>
 						We're using an <i>operational amplifier</i> to amplify our signal. We're going to have our op-amp in a 'non-inverting' configuration,
-						meaning that the output will have the same polarity as the non-iverting (\(+\)) input.
+						meaning that the output will have the same polarity as the non-iverting (\(+\)) input. This stage is necessary to allow the diodes
+						to properly clip the signal in the <a href = "#overdriveStage">overdrive stage</a>. The output from our guitar might typically be less
+						than \(+/-0.5V\), and the diode network will only start clipping when the magnitude exceeds the forward-bias voltage drop of the 
+						configuration (usually above \(0.7V\)). By amplifying our signal, we then allow the diodes to actually clip it and create the 
+						distorted sound we're looking for.
+					</p>
+					<p>
+						Simply put, the operational amplifier takes our input signal at its <i>non-inverting (\(+\)) input</i>, and outputs an amplified
+						version of this. To do this, the amplifier must be connected in such a way that it creates a <i>non-inverting amplifier</i>.
+						To achieve this, we connect the output of the amplifier back to the <i>inverting (\(-\)) input</i> of the amplifier via a 
+						<a href = "importantConcepts.html#voltageDividers" target = "_blank">voltage divider</a>. 
 					</p>
 				</div>
 				<div id = "overdriveStage">
 					<h5>The overdrive stage</h5>
+					<p>
+						To actually create the 'distorted' sound, we can use a neat little trick using 
+						<a href = "componentsAndTools.html#diodes" target = "_blank">diodes</a>. 
+					</p>
+					<p>
+						To recap: a diode will conduct current in one direction, and block it in the other. In order to conduct current in the 
+						forward-bias direction, the voltage between the two legs of the diodes must exceed what is called the 'forward-bias voltage'. Once 
+						this potential difference is achieved, the diode begins to conduct current. Now, once the diode is conducting current, the voltage
+						drop between it's legs remains almost constant for any amount of current flow through the diode. For example, a silicon diode will
+						drop \(\approx0.7V\) for any amount of current flowing through it, and so the anode will be at a voltage that is \(0.7V\) higher than
+						the cathode.
+					</p>
+					<p>
+						Let's think about a slightly simpler case first. Lets say we have an AC signal connected in series with a resistor and a diode.
+						Before the voltage across the diode reaches \(0.7V\), the diode isn't conducting and so there's no current flow in our circuit. Since 
+						there's no current flowing through the series resistance, there's no voltage drop across the resistor (ohms law), and so the measured 
+						output voltage is equal to the input voltage).
+					</p>
+					<p>
+						Once the input voltage exceeds \(0.7V\), the diode begins to conduct current. After this point, any amount of current flow will
+						correspond to a \(0.7V\) drop across the diode. Since the cathode is connected to ground, this actually means that the anode will
+						always be at \(0V+0.7V=0.7V\) whenever the diode is conducting. As the input voltage increases past \(0.7V\) the diode conducts a 
+						larger current. Since the resistor is in series with the diode, it also conducts more current, and so the voltage drop across the
+						resistor increases - the voltage drop across the resistor will be \(V_{in}-0.7V\). Hopefully this makes sense - the voltage drop
+						across the diode when conducting is constant, but the voltage drop across the resistor changes so that the total voltage drop in
+						the circuit is equal to the input voltage.
+					</p>
+					<p>
+						Now back to our overdrive circuit, and this mechanism can be used to 'clip' our signal. Connecting the anode of a diode to our signal
+						and the cathode to ground allows us to clip the positive half of the waveform as we discussed above. Then adding a second diode 
+						in parallel with this, but with the cathode on our signal and the anode to ground, allows us to clip the negative half of the 
+						waveform. The result is then a truncated waveform, similar to those we saw when discussing 
+						<a href = "distortion.html" target = "_blank">how distortion works</a>. In this configuration, the signal is hard-clipped, which
+						might actually sound more like distortion than overdrive (<i>note, however, that the clipping won't be as severe as we saw in the 
+						distortion discussion, as real components aren't quite capable of this kind of performance</i>).
+					</p>
 				</div>
 				<div id = "outputStage">
 					<h5>The output stage</h5>
+						As we discussed, this version of the circuit is nice and simple, so there isn't much going on at the output just yet. 
 				</div>
 				<div id = "fullAssembly">
 					<h5>The full assembly</h5>
 					<p>
-						alters sound:
-						<br>higher output cap value is cutting more treble & volume
-						<br>log pot maybe better?
-						<br>different diodes & diode arrangements (asymmetric, series diodes, etc.) different sound
-						<br>gain on op-amp alters output
+						If we put all of this together, we have what is essentially the simplest overdrive pedal that we can make. No switches, one control,
+						and it sounds relatively unremarkable. It still does a decent job though! 
 					</p>
 				</div>
 			</div>
 			
 			<div id = "modifications">
 				<h4>Modifications</h4>
+				<p>
+					Volume control will act as tone if coupling cap not high enough (consider f_c)
+				</p>
+				<p>
+					Tone control
+				</p>
+				<p>
+					alters sound:
+					<br>higher output cap value is cutting more treble & volume
+					<br>log pot maybe better?
+					<br>different diodes & diode arrangements (asymmetric, series diodes, etc.) different sound. Try difference between hard & soft clip
+					<br>gain on op-amp alters output
+				</p>
 			</div>
 
 		</div>

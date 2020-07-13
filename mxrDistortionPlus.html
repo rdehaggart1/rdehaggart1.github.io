@@ -44,17 +44,29 @@
 					</p>
 					<p>
 						<i>R2</i> and <i>R3</i> form a <a href = "importantConcepts.html#voltageDividers" target = "_blank">potential divider</a>, and create 
-						a <a href = "importantConcepts.html#DCBiasing", target = "blank">DC bias voltage</a>.
+						a <a href = "importantConcepts.html#DCBiasing", target = "blank">DC bias voltage</a>. This DC voltage is used to 'shift' the center of 
+						our input signal away from \(0V\), and up to \(4.5V\), allowing it to take advantage of the full range of the op-amp's output.
 					</p>
 					<p>
-						<i>C2</i> is a <a href = "importantConcepts.html#couplingCapacitors" target = "_blank">coupling capacitor</a>.
+						<i>C2</i> is a <a href = "importantConcepts.html#couplingCapacitors" target = "_blank">coupling capacitor</a>. It blocks the DC current
+						from the power supply from flowing back into the source (our guitar circuitry). Without this capacitor, the DC biasing would not be
+						properly achieved.
 					</p>
 					<p>
 						<i>C1</i> is a power supply <a href = "importantConcepts.html#smoothingCapacitors" target = "_blank">smoothing capacitor</a>, and is 
-						required because this is a <i>real</i> circuit, connected to a <i>real</i> power supply.
+						required because this is a <i>real</i> circuit, connected to a <i>real</i> power supply. As we'll see when we make our own
+						<a href = "basicOverdrive.html" target = "_blank">overdrive pedal</a>, this capacitor isn't so necessary when using a \(9V\) battery
+						as our supply, because they produce a 'cleaner' voltage that doesn't fluctuate so much. However, this schematic also has the option
+						of using a wall-wart supply, and this power supply is likely to be much noisier and less constant - this is where the capacitor is
+						really doing its duty.
 					</p>
 					<p>
-						<i>R4</i> complicated
+						<i>R4</i> is a slightly complicated one. We wouldn't need <i>R4</i> if we didn't have <i>C1</i>, but to smooth variations in the power
+						supply, <i>C1</i> is an important component. But now the combination of <i>C1</i> and <i>R3</i> in parallel is important. The reactance
+						of <i>C1</i> to a \(1kHz\) signal is about \({1 \over 2 \times \pi \times f \times C}=160\Omega\). 
+						In parallel with the \(1M\Omega\) resistor, the effective resistance of the pair is still about \(160\Omega\). If <i>R4</i> wasn't
+						there, our signal would have a low resistance path to ground through this pair. By adding a high resistance to this path of \(1M\Omega\)
+						(<i>R4</i>), we can prevent the signal from bleeding to ground, and maintain it's strength at the non-inverting input of the op-amp.
 					</p>
 					<p>
 						<i>R5</i> is a <a href = "importantConcepts.html#currentLimitingResistors" target = "_blank">current limiting resistor</a>, that will 
@@ -77,7 +89,10 @@
 						<i>C6</i> removes our DC bias from the output signal, so the pedal output is centred around \(0V\), like the input.
 					</p>
 					<p>
-						<i>D1</i> and <i>D2</i> clip the signal to produce the 'overdrive' effect
+						<i>D1</i> and <i>D2</i> clip the signal to produce the 'overdrive' effect. This way, we don't have to push any of our components to
+						their limits and risk damaging them. We'll look at clipping in our section on <a href = "distortion.html" target = "_blank">distortion</a>,
+						and we'll see how diodes clip a signal in this configuration and others when we get to building our own
+						<a href = "basicOverdrive.html" target = "_blank">basic overdrive pedal</a>.
 					</p>
 					<p>
 						<i>R9</i> limits the current through the diodes (and seems to make the response symmetric?)
@@ -86,13 +101,19 @@
 						<i>C7</i> is a filter to remove high frequency noise from the output.
 					</p>
 					<p>
-						<i>R10</i> controls the volume
+						<i>R10</i> controls the volume by effectively creating a voltage divider. The output is measured between the wiper and the bottom pin
+						of the potentiometer (effectively the bottom resistor in the voltage divider created by a potentiometer). As the wiper moves down, the
+						resistance between the top and middle pins increases, whilst the opposite is true for the bottom resistor. This means more voltage is
+						being dropped across the 'top' part of the potentiometer, and less across the bottom (where we are measuring our output). A smaller 
+						voltage across our output then means that the signal out of the pedal is quieter.
 					</p>
 					<p>
-						<i>D3</i> is an 'on' indicator LED
+						<i>D3</i> is an 'on' indicator LED, and quite simply, it tells you when the pedal is on... Easy. As the pedal is switched on, the 
+						circuit is closed and current can flow from power to ground via the LED, illuminating it.
 					</p>
 					<p>
-						<i>R11</i> is a current limiting resistor to protect <i>D3</i>, the indicator LED
+						<i>R11</i> is a current limiting resistor to protect <i>D3</i>, the indicator LED. Diodes are semiconductors and don't take well to 
+						spikes in current. This resistor limits the current flow through the LED so we don't accidentally burn it out.
 					</p>
 					
 				</div>
