@@ -21,7 +21,14 @@
 				component sizes and configurations.
 			</p>
 			<p>
-				We'll start things nice and simple, looking at an overdrive circuit with one control (<i>gain</i>), and no 'on/off' switch. Clearly this isn't
+				Here's a quick look at our full schematic. This is what we're aiming to build - we'll run through each of these four sections individually.
+				<figure id = "fullSchematic_start">
+					<img src = "figures/overdriveFullSchematic.png" alt = "the full schematic of the basic overdrive pedal"></img>
+					<figcaption>The full schematic of the basic overdrive pedal</figcaption>
+				</figure>
+			</p>
+			<p>
+				We'll start things nice and simple, looking at the overdrive circuit with one control (<i>gain</i>), and no 'on/off' switch. Clearly this isn't
 				much use - if you decide you dont want overdrive, it's a bit annoying to have to lean down and twist your gain control to minimum... However,
 				this way we can start off simple, then make some mods afterwards to give it some more functionality or a different sound.
 			</p>
@@ -35,11 +42,22 @@
 						<td><img class = "recipeIcon" src = "images/componentIcons/jackSocket.png" /></td>
 					</tr>
 					<tr>
-						<td>Resistor</td>
+						<td>Resistor
+						<ul>
+							<li>\(1M\Omega\) x3</li>
+							<li>\(10k\Omega\) x2</li>
+						</ul>
+						</td>
 						<td><img class = "recipeIcon" src = "images/componentIcons/resistor.png" /></td>
 					</tr>
 					<tr>
-						<td>Capacitor</td>
+						<td>Capacitor
+						<ul>
+							<li>\(1\mu F\) x1</li>
+							<li>\(100nF\) x2</li>
+							<li>\(820pF\) x1</li>
+						</ul>
+						</td>
 						<td><img class = "recipeIcon" src = "images/componentIcons/capacitor.png" /></td>
 					</tr>
 					<tr>
@@ -47,7 +65,11 @@
 						<td><img class = "recipeIcon" src = "images/componentIcons/opAmp.png" /></td>
 					</tr>
 					<tr>
-						<td>\(1M\Omega\) Potentiometer x1</td>
+						<td>Potentiometer
+						<ul>
+							<li>\(1M\Omega\), reverse-log x1</li>
+						</ul>
+						</td>
 						<td><img class = "recipeIcon" src = "images/componentIcons/potentiometer.png" /></td>
 					</tr>
 					<tr>
@@ -187,25 +209,31 @@
 						Let's think about a slightly simpler case first. Lets say we have an AC signal connected in series with a resistor and a diode.
 						Before the voltage across the diode reaches \(0.7V\), the diode isn't conducting and so there's no current flow in our circuit. Since 
 						there's no current flowing through the series resistance, there's no voltage drop across the resistor (ohms law), and so the measured 
-						output voltage is equal to the input voltage).
+						output voltage (the blue line in the image below) is equal to the input voltage).
+						<figure id = "seriesDiode">
+							<img src = "figures/seriesDiode.png" alt = "a diode and resistance in series with an AC voltage source"></img>
+							<figcaption>The voltage dropped across a resistor and diode in series with an AC voltage source</figcaption>
+						</figure>
 					</p>
 					<p>
-						Once the input voltage exceeds \(0.7V\), the diode begins to conduct current. After this point, any amount of current flow will
-						correspond to a \(0.7V\) drop across the diode. Since the cathode is connected to ground, this actually means that the anode will
-						always be at \(0V+0.7V=0.7V\) whenever the diode is conducting. As the input voltage increases past \(0.7V\) the diode conducts a 
-						larger current. Since the resistor is in series with the diode, it also conducts more current, and so the voltage drop across the
-						resistor increases - the voltage drop across the resistor will be \(V_{in}-0.7V\). Hopefully this makes sense - the voltage drop
-						across the diode when conducting is constant, but the voltage drop across the resistor changes so that the total voltage drop in
-						the circuit is equal to the input voltage.
+						Once the input voltage reaches \(0.7V\), the diode begins to conduct current. Since the cathode is connected to ground, this actually 
+						means that the anode will be at \(0V+0.7V=0.7V\) whenever the diode is conducting. As the input voltage increases past \(0.7V\) 
+						the diode conducts a larger current. Since the resistor is in series with the diode, it also conducts more current, and so the voltage
+						drop across the	resistor increases - the voltage drop across the resistor will be \(V_{in}-0.7V\), so that the voltage drop across the 
+						diode when conducting is constant.
 					</p>
 					<p>
-						Now back to our overdrive circuit, and this mechanism can be used to 'clip' our signal. Connecting the anode of a diode to our signal
-						and the cathode to ground allows us to clip the positive half of the waveform as we discussed above. Then adding a second diode 
-						in parallel with this, but with the cathode on our signal and the anode to ground, allows us to clip the negative half of the 
-						waveform. The result is then a truncated waveform, similar to those we saw when discussing 
-						<a href = "distortion.html" target = "_blank">how distortion works</a>. In this configuration, the signal is hard-clipped, which
-						might actually sound more like distortion than overdrive (<i>note, however, that the clipping won't be as severe as we saw in the 
-						distortion discussion, as real components aren't quite capable of this kind of performance</i>).
+						Now back to our overdrive circuit, and this mechanism can be used to 'clip' our signal. As you can see in the figure above, the 
+						output voltge (the blue line), is the same as the input voltage (the orange line), but with the peak clipped to \(0.7V\). We want
+						to do this to both the positive and negative half cycles of our waveform.
+						<br>Connecting the anode of a diode to our signal and the cathode to ground allows us to clip the positive half of the waveform as we 
+						discussed above. Then adding a second diode in parallel with this, but with the cathode on our signal and the anode to ground, allows 
+						us to clip the negative half of the waveform. This configuration results in symmetric clipping (the waveform is clipped at the same
+						amplitude for the positive and negative half cycles), and is achieved by diodes <i>D1</i> and <i>D2</i> in our 
+						<a href= "#clippingStageSchematic">clipping stage schematic</a>. The result is then a truncated waveform, similar to those we saw when 
+						discussing <a href = "distortion.html" target = "_blank">how distortion works</a>. In this configuration, the signal is hard-clipped, 
+						which might actually sound more like distortion than overdrive (<i>note, however, that the clipping won't be as severe as we saw in 
+						the distortion discussion, as real components aren't quite capable of this kind of performance</i>).
 					</p>
 				</div>
 				<div id = "outputStage">
@@ -215,8 +243,16 @@
 						All we've done is added a capacitor in parallel with our clipping diodes and our output, and this is working with our current
 						limiting resistor <i>R6</i> to create a <a href = "importantConcepts.html#frequencyFilters" target = "_blank">low-pass filter</a>.
 						Using the cut-off frequency equation \(f_c={1 \over 2 \times \pi \times R \times C}\), we see that a larger capacitor will give
-						us a lower cutoff frequency - a bassier response. Again, this capacitor is a good component to experiment with - try a few
-						different values and find something you like the sound of.
+						us a lower cutoff frequency, cutting the treble a bit. Again, this capacitor is a good component to experiment with - try a few
+						different values and find something you like the sound of. For our \(10k\Omega\) resistor, \(800pF\) gives us a cutoff frequency
+						around \(20kHz\), so anything larger than this will noticeably cut our trebles. \(820pF\) is a standard capacitance value, so 
+						this is what we've gone for here, but you can also combine 
+						<a href = "https://www.allaboutcircuits.com/textbook/direct-current/chpt-13/series-and-parallel-capacitors/" target = "_blank">capacitors in series or parallel</a> 
+						to get more specific values.
+						<figure id = "outputStageSchematic">
+							<img src = "figures/overdriveOutputStage.png" alt = "the output stage of the basic overdrive pedal"></img>
+							<figcaption>The schematic for the output stage of the basic overdrive pedal</figcaption>
+						</figure>
 					</p>
 					<p>
 						When we start looking at how we can <a href = "#modifications">modify</a> this circuit, we'll add a volume and tone control
@@ -228,6 +264,14 @@
 					<p>
 						If we put all of this together, we have what is essentially the simplest overdrive pedal that we can make. No switches, one control,
 						and it sounds relatively unremarkable. It still does a decent job though! 
+						<figure id = "fullSchematic_end">
+							<img src = "figures/overdriveFullSchematic.png" alt = "the full schematic of the basic overdrive pedal"></img>
+							<figcaption>The full schematic of the basic overdrive pedal</figcaption>
+						</figure>
+					</p>
+					<p>
+						Here we're representing our input as an AC voltage source, and our output as a voltmeter, but obviously in our actual circuit this
+						would be where we connect our input and output jack sockets.
 					</p>
 				</div>
 			</div>
