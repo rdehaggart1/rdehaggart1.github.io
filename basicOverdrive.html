@@ -15,13 +15,17 @@
 			<script type="text/javascript" src="includes/title.js"></script>
 			<h3>Basic Overdrive Pedal</h3>
 			<p>
+				<text style = "font-weight: bold">NOTE: THIS PAGE IS VERY FULL OF INFO MORE FOR MY OWN BENEFIT AS I DEVELOP THIS PEDAL. THE PLAN IS
+				TO MAKE THIS A MORE FRIENDLY 'BUILD ALONG' STYLE PAGE ONCE IM SURE OF THE DESIGN AND HAVE BEEN ABLE TO DO SOME MORE TESTING</text>
+				<br>
 				Now we'll look at how to construct a 'basic' overdrive pedal. There's nothing particularly fancy or special about this pedal, but it will
 				function as a nice overdrive (actually its maybe somewhere in between overdrive and distortion...) with some good tunability. 
 				It might look quite similar to the <a href = "mxrDistortionPlus.html" target = "_blank">MXR Distortion+</a>, but with a few changes in 
 				component sizes and configurations.
 			</p>
 			<p>
-				Here's a quick look at our full schematic. This is what we're aiming to build - we'll run through each of these four sections individually.
+				Here's a quick look at our full schematic. This is what we're aiming to build - we'll run through each of these four sections (input, gain
+				, clipping, output) individually.
 				<figure id = "fullSchematic_start">
 					<img src = "figures/overdriveFullSchematic.png" alt = "the full schematic of the basic overdrive pedal"></img>
 					<figcaption>The full schematic of the basic overdrive pedal</figcaption>
@@ -29,8 +33,8 @@
 			</p>
 			<p>
 				We'll start things nice and simple, looking at the overdrive circuit with one control (<i>gain</i>), and no 'on/off' switch. Clearly this isn't
-				much use - if you decide you dont want overdrive, it's a bit annoying to have to lean down and twist your gain control to minimum... However,
-				this way we can start off simple, then make some mods afterwards to give it some more functionality or a different sound.
+				much use - if you decide you don't want overdrive... well you can only have overdrive. However, this way we can start off simple, then make 
+				some mods afterwards to give it some more functionality or a different sound.
 			</p>
 			
 			<div id = "ingredients">
@@ -113,15 +117,37 @@
 						are the same size (\(1M\Omega\)), and so the supply voltage is evenly split to give the same drop over each: \({9V \over 2}=4.5V\). 
 						<br>Adding a \(4.5V\) DC bias to our input signal (represented as an AC voltage source in the schematic), basically means <b>adding 
 						\(4.5V\) to our signal at every point in time</b>, so that it has the same shape and peak to peak voltage level, but so it is 
-						oscillating around a centre voltage of \(4.5V\) instead of \(0V\). <br>However, we can't simply connect our source to this biasing 
-						junction between <i>R1</i> and <i>R2</i> - if we did this, the junction voltage would just be the input voltage, and <i>B1</i> would 
-						be able to force current back into our guitar. This is because
+						oscillating around a centre voltage of \(4.5V\) instead of \(0V\). 
+					</p>
+					<p>
+						However, we can't simply directly connect our source to the
+						junction between <i>R1</i> and <i>R2</i> - if we did this, the junction voltage would just be equal to
+						the input voltage, and <i>B1</i> would be able to force current back into our guitar. This is because
 						<a href = "importantConcepts.html#sourceAndLoadImpedance" target = "_blank">our guitar has a low impedance</a>, and so DC current 
 						would easily make it's way back to the pickups. To prevent this, we use a
 						<a href = "importantConcepts.html#couplingCapacitors" target = "_blank">coupling capacitor</a>, which blocks the DC current from
-						flowing back into our guitar (due to it's high impedance for low (or zero) frequency signals, but allows the AC current into our pedal 
+						flowing back into our guitar (due to it's high impedance for low (or zero) frequency signals), but allows the AC signal into our pedal 
 						circuit.
-						<br>***discuss how the AC signal drives current either side of the divider & changes the voltage drop - this causes bias?***
+					</p>
+					<p>
+						Since <i>C1</i> presents an (essentially) infinite resistance to the DC current supplied by <i>B1</i>, no current will flow this
+						way, and it's like there's no connection at all. This means the DC current is determined by <i>R1</i> and <i>R2</i> in series as
+						\(I = {V \over R} = {9V \over 1M \Omega + 1M \Omega} = 4.5 \mu A\). Depending on how comfortable you are with capacitors, you may 
+						know something about how they introduce a phase shift (this is where complex numbers come into our impedance discussions). For now, 
+						we'll just ignore the phase shift and note that our AC waveform is present at our voltage divider junction (this is fine because
+						all the phase shift is doing is flipping our positive and negative half cycles, and so the following discussion will still be true). 
+					</p>
+					<p>
+						If we have a \(500mV_{peak}\) signal at our junction, it will see <i>R1</i> and <i>R2</i> in parallel, and so with an effective 
+						resistance of \({1 \over {1 \over 1M\Omega} + {1 \over 1M\Omega}} = 500k\Omega\). This means the signal current peaks at 
+						\({500mV \over 500k\Omega} = +/-1\mu A\). In the positive half cycle, our source pushes current down through <i>R2</i> to ground. 
+						The total current through <i>R1</i> and <i>R2</i> must remain at \(9 \mu A\) (in order to still drop \(9V\) total across 
+						the network), and since we're adding \(1 \mu A\) from our signal, the current through <i>R2</i> increases by \(0.5 \mu A\) to 
+						\(5 \mu A\), whilst the current through <i>R1</i> decreases by \(0.5 \mu A\) to \(4 \mu A\). We now have 
+						\(V_{R2} = 5 \mu A \times 1 M \Omega = 5V\), and \(V_{R1} = 4 \mu A \times 1 M \Omega = 4V\). The opposite will be true for
+						the negative half cycle. We measure the voltage between the junction and ground (which is equal to the voltage dropped across <i>R2</i>)
+						and this is the voltage that is passed to the gain stage. It is now osciallting between \(4V\) and \(5V\) - this is our biased input 
+						signal.
 					</p>
 					<p>
 						The size of <i>C1</i> isn't <i>that</i> important, and can be decided based on personal preference. A larger capacitor will give you a 
@@ -156,30 +182,34 @@
 						version of this. To do this, the op-amp must be connected in such a way that it creates a <i>non-inverting amplifier</i>.
 						To achieve this, we connect the output of the op-amp back to the <i>inverting (\(-\)) input</i> via a 
 						<a href = "importantConcepts.html#voltageDividers" target = "_blank">voltage divider</a>. We already covered <i>non-inverting
-						amplifiers</i> in detail here, and so we wont dwell on the specifics, but all you need to know is that <b>the values of <i>R4</i> 
-						and <i>R5</i> define the gain of the amplification stage through the relationship: \(gain = 1+{R4 \over R5+X_C}\)</b>, where \(X_C\) is
-						the impedance of <i>C2</i> - we'll discuss this component a little further down. We could make a fixed-gain amplifier by using 
-						two fixed resistances here, but where's the fun in that? If we instead use a fixed resistor and a potentiometer, we can control the 
-						gain of the amplifier just by twisting a knob - neat! 
+						amplifiers</i> in detail here, and so we wont dwell on the specifics, but all you need to know is that <b>the values of <i>R4</i>,
+						<i>R5</i> and <i>R6</i> define the gain of the amplification stage through the relationship: 
+						\(gain = 1+{R4 \over R5 + R6 + X_C}\)</b>, where \(X_C\) is the impedance of <i>C2</i> - we'll discuss this component a little 
+						further down. We could make a fixed-gain amplifier by using fixed resistances here, but where's the fun in that? If we instead use a 
+						potentiometer in one of these positions, we can control the gain of the amplifier just by twisting a knob - neat! 
 					</p>
 					<p>
-						In our circuit, <i>R5</i> is a potentiometer with maximum resistance of \(1M\Omega\). We connect the wiper to the grounded leg
+						In our circuit, <i>R6</i> is a potentiometer with maximum resistance of \(1M\Omega\). We connect the wiper to the grounded leg
 						of the pot so that the ground-side portion of the pot is shorted, and what we have is essentially just a variable resistor. This
-						variable resistor allows us to swing our gain between \(1+{1M\Omega \over 1M\Omega} = 2\) and \(1+{1M\Omega \over 100\Omega}=10,001\).
+						variable resistor allows us to swing our gain between \(1+{1M\Omega \over 1M\Omega + 2.2k\Omega} \approx 2\) and 
+						\(1+{1M\Omega \over 2.2k\Omega}=455.5\).
 						<b>Note that this upper value varies with the minimum resistance possible on your potentiometer, but the point is that it's
-						<i>very high</i>. Also we've ignored the capacitance here for reasons we will discuss below</b>. 
-						<br>It's quite a good idea (though not a necessity) to use a 'reverse-log' pot for <i>R5</i>. We discussed reverse-log pots here, but
+						<i>very high</i>. <i>R5</i> is acting as a gain limit. If we decrease the size of <i>R5</i>, we increase the maximum possible gain.
+						However, without it, things start to get a bit screechy and painful, so just play around and find something you like!
+						Also, we've ignored the capacitance here for reasons we will discuss below</b>. 
+						<br>It's quite a good idea (though not a necessity) to use a 'reverse-log' pot for <i>R6</i>. We discussed reverse-log pots here, but
 						the key thing to know is to understand that a reverse-log pot better distributes our gain across the motion of the shaft.
 					</p>
 					<p>
 						<i>C2</i> is quite an important component in this circuit. Remember how we offset our signal up to \(4.5V\) in the
 						<a href = "#inputStage">input stage</a>? Well now we have a signal that has both DC and AC components. The gain of the op-amp,
-						if set only by <i>R4</i> and <i>R5</i>, would be the same for the AC and DC components, and so our offset would be amplified too,
-						according to the gain of the confiiguration. This risks amplifying our DC component so much that it saturates at the top of the output 
+						if set only by the resistances, would be the same for the AC and DC components, and so our offset would be amplified too,
+						according to the gain of the configuration. This risks amplifying our DC component so much that it saturates at the top of the output 
 						range (\(9V\)), and we lose the top-half of our waveform. We can re-visit the gain calculation for DC components 
-						(\(gain = 1+{R4 \over R5+X_C}=1+{R4 \over R5+{1 \over 2 \times \pi \times f \times C}}\)) and note that \(X_C\) is <i>really</i> high 
-						for DC components, meaning that for DC components, the gain approaches \(1\). The capacitor should also be large enough that it 
-						doesn't provide a high impedance to our AC frequencies of interest, too, and significantly drop our AC gain for these frequencies.
+						(\(gain = 1+{R4 \over R5 + R6 + X_C}=1+{R4 \over R5 + R6 +{1 \over 2 \times \pi \times f \times C}}\)) and note that \(X_C\) 
+						is <i>really</i> high for DC components, meaning that for DC components, the gain approaches \(1\). The capacitor should also be 
+						large enough that it doesn't provide a high impedance to our AC frequencies of interest, too, and significantly drop our AC gain 
+						for these frequencies.
 					</p>
 					<p>
 						<i>R3</i> is simply our <a href = "importantConcepts.html#currentLimitingResistors" target = "_blank">current limiting resistor</a>,
