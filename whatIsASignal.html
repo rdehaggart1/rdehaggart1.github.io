@@ -24,40 +24,62 @@
 					is relatively simple. To keep a lid on things, we’ll make some simplifications.
 				</p>
 				<p>
-				
+					The need-to-know points follow.
+				<h3>How We Hear Our Guitars</h3>
+				<p>
+					<b>When you ‘pluck’ a guitar string</b>, you induce a 'back and forth' vibration on the string.
+					As the string is vibrating, <b>it pushes nearby air molecules back and forth</b>. <b>As the string moves</b> in one direction, the air molecules in 
+					that direction are forced to 'bunch up' when the string pushes into them, and this creates a region of high air pressure. When the string
+					retreats, it allows the air molecules to 'relax' and spread out, creating a region of low air pressure. This continues as long as the string
+					vibrates, and so <b>it creates regions of higher and lower pressure which advance through the air</b> at the speed of sound. This continuous 
+					oscillation in air pressure is what's called a 
+					<a href = "https://en.wikipedia.org/wiki/Transverse_wave#:~:text=In%20physics%2C%20a%20transverse%20wave,other%20end%20up%20and%20down." target = "_blank">
+					transverse pressure wave</a> through the air. The animation below should be a very handy visual for this process. 
+					The air pressure can then push and pull our eardrums, so we hear the guitar string, even when it's unplugged. 
+				</p>
+				<p>
+					<b>If you pluck the string harder</b>, the vibrations will be stronger, and so the air molecules will be forced to bunch up more at the 
+					'peaks' resulting in a greater peak to peak air pressure (see the y-axis of the bottom plot in the animation below). More pressure means
+					more 'pushing force' on our eardrums, and so <b>we hear a louder sound</b>.
+				</p>
+				<p>
+					Using the animation below, lets say the rightmost position of the string is called point <i>x</i>. 
+					Between two visits of point <i>x</i>, a given high pressure region will have moved some distance through the air. The regions of high and 
+					low pressure each move through the air at the local speed of sound, no matter which string created the wave, and no matter how intense 
+					(loud) the wave is. So if a string can get back to point <i>x</i> more quickly, the distance that the given high pressure region has
+					moved will be shorter.
+					In other words, <b>a faster moving string creates a wave with a shorter 'wavelength'</b>, meaning that the regions of 'bunched up' air molecules
+					(regions of higher pressure) have less distance between eachother. <b>When we talk about the 'frequency' of a note, we're actually talking about how 
+					'frequently' the pressure varies in space</b>. If you pluck your high E string, it will vibrate faster than your low E string, and so the 
+					'frequency' of the pressure wave increases, and we interpret this as a higher pitched (higher frequency) note.
 					<figure id = "pickupOperation">
-						<img src = "figures/audioWave.gif" alt = "How a mechanical vibration creates a pressure wave"></img>
-						<figcaption>TOP: as the guitar string moves back and forth (vibrates), it pushes air molecules, creating a transverse pressure wave that
-									we hear as audible sound.
-									BOTTOM: this wave can also be described as a longitudinal wave, where the height of the wave describes the air pressure
-									at a point in space, and the wavelength tells us how close the pressure peaks are to eachother. A smaller wavelength means
-									the peaks are more 'frequent', or in other words, <i>the wave has a higher frequency</i>, and we interpret this as a higher
-									pitched sound. <br>Image Credit: Ralph Muehleisen</figcaption>
+						<img src = "figures/audioWave.gif" alt = "How a mechanical vibration creates a pressure wave" style="width: 30vw;"></img>
+						<figcaption>Image Credit: Ralph Muehleisen</figcaption>
 					</figure>
-					The need-to-know points are as follows:
-					<ul>
-						<li><b>When you ‘pluck’ a guitar string, you induce a 'back and forth' vibration on the string</b>.</li>
-						<li>As the string is vibrating, it pushes nearby air molecules back and forth too, and so sets up a <a href = "https://en.wikipedia.org/wiki/Transverse_wave#:~:text=In%20physics%2C%20a%20transverse%20wave,other%20end%20up%20and%20down." target = "_blank">
-						transverse pressure wave</a> through the air that we can hear, even when the guitar is unplugged. At this point we can hear the guitar
-						making a noise by itself, but we need to convert the vibration of the string into an electrical signal aswell, so that we can 
-						pass it into our circuitry.</li>
-						<li>Enter, pickups. Pickups convert the vibrations of the guitar strings into an audio signal. This might sound like magic, depending on how familiar 
+				</p>
+				<p>	
+						At this point we can 
+						hear the guitar making a noise by itself, but we need to convert the vibration of the string into an electrical signal aswell, so that 
+						we can pass it into our circuitry.
+						Enter, pickups. Pickups convert the vibrations of the guitar strings into an audio signal. This might sound like magic, depending on how familiar 
 						you are with electromagnetic induction. What you need to know is that <b>as a string vibrates over the pickup, an alternating voltage 
 						is created in the guitar circuitry, and this voltage is an electrical representation of the note you’ve just played</b>. The 
 						voltage is a sinusoidal oscillation with a frequency equal to the frequency of the guitar string vibration, and an amplitude that 
 						relates to how ‘hard’ the string is vibrating [see appendix for detailed explanation – amplitude relates to speed (faraday/lenz) and 
-						if amplitude of vibration is higher, speed of nodes is higher at centre point].</li>
-					</ul>
+						if amplitude of vibration is higher, speed of nodes is higher at centre point].
+						
+						<p>
+						Below is an illustration of the basic principle. As the string oscillates back and forth, so too does the voltage induced in the pickups. 
+						A full understanding of this concept is not necessary. It has been presented here for completeness as we paint the picture of what causes 
+						the input to our pedals
+						</p>
+						<figure id = "pickupOperation">
+							<img src = "figures/inducedVoltagePickups.jpg" alt = "Basic pickup operation"></img>
+							<figcaption>How the motion of a guitar string effects the voltage output of the pickups. <br>Image Credit: <a href = "http://www.electricalfun.com/WorkbenchFun/basic_electric_guitar_circuits.aspx" target="_blank">www.electricalfun.com</a></figcaption>
+						</figure>
+
 				</p>
-				<p>
-					Below is an illustration of the basic principle. As the string oscillates back and forth, so too does the voltage induced in the pickups. 
-					A full understanding of this concept is not necessary. It has been presented here for completeness as we paint the picture of what causes 
-					the input to our pedals
-				</p>
-				<figure id = "pickupOperation">
-					<img src = "figures/inducedVoltagePickups.jpg" alt = "Basic pickup operation"></img>
-					<figcaption>How the motion of a guitar string effects the voltage output of the pickups. <br>Image Credit: <a href = "http://www.electricalfun.com/WorkbenchFun/basic_electric_guitar_circuits.aspx" target="_blank">www.electricalfun.com</a></figcaption>
-				</figure>
+
 			</div>
 			
 		</div>
