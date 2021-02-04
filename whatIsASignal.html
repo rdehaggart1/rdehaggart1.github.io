@@ -21,10 +21,14 @@
 					carries the information about what you’re playing and how you’re playing it. The signal is manipulated by the circuitry inside the guitar, 
 					then by the circuitry of the effects pedal(s), and then again by the amplifier. Finally, it is output as a sound wave by the loudspeaker. 
 					At a very high level, everything from plucking an electric guitar string, to some (hopefully expected) sound coming out of the loudspeaker 
-					is relatively simple. To keep a lid on things, we’ll make some simplifications.
+					is relatively simple. The full technical description is included below for completeness, but it is absolutely not necessary to understand this.
+					
+					Simply put, <b>when you pluck a string, it vibrates. This vibration means that the string is moving within the
+					magnetic field of the pickups, and so an alternating voltage is induced thanks to <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/electric/farlaw.html" target="_blank">
+					Faraday's law of induction</a></b>.
+					<br><br>If that hasn't satisfied you, read on!
 				</p>
-				<p>
-					The need-to-know points follow.
+
 				<h3>How We Hear Our Guitars</h3>
 				<p>
 					<b>When you ‘pluck’ a guitar string</b>, you induce a 'back and forth' vibration on the string.
@@ -38,7 +42,7 @@
 					The air pressure can then push and pull our eardrums, so we hear the guitar string, even when it's unplugged. 
 				</p>
 				<p>
-					<b>If you pluck the string harder</b>, the vibrations will be stronger, and so the air molecules will be forced to bunch up more at the 
+					<b>If you pluck the string harder, the vibrations will be stronger</b>, and so the air molecules will be forced to bunch up more at the 
 					'peaks' resulting in a greater peak to peak air pressure (see the y-axis of the bottom plot in the animation below). More pressure means
 					more 'pushing force' on our eardrums, and so <b>we hear a louder sound</b>.
 				</p>
@@ -57,27 +61,50 @@
 						<figcaption>Image Credit: Ralph Muehleisen</figcaption>
 					</figure>
 				</p>
+				
+				<h3>How Our Guitars 'Hear Themselves'</h3>
 				<p>	
-						At this point we can 
-						hear the guitar making a noise by itself, but we need to convert the vibration of the string into an electrical signal aswell, so that 
-						we can pass it into our circuitry.
-						Enter, pickups. Pickups convert the vibrations of the guitar strings into an audio signal. This might sound like magic, depending on how familiar 
-						you are with electromagnetic induction. What you need to know is that <b>as a string vibrates over the pickup, an alternating voltage 
-						is created in the guitar circuitry, and this voltage is an electrical representation of the note you’ve just played</b>. The 
-						voltage is a sinusoidal oscillation with a frequency equal to the frequency of the guitar string vibration, and an amplitude that 
-						relates to how ‘hard’ the string is vibrating [see appendix for detailed explanation – amplitude relates to speed (faraday/lenz) and 
-						if amplitude of vibration is higher, speed of nodes is higher at centre point].
-						
-						<p>
-						Below is an illustration of the basic principle. As the string oscillates back and forth, so too does the voltage induced in the pickups. 
-						A full understanding of this concept is not necessary. It has been presented here for completeness as we paint the picture of what causes 
-						the input to our pedals
-						</p>
-						<figure id = "pickupOperation">
-							<img src = "figures/inducedVoltagePickups.jpg" alt = "Basic pickup operation"></img>
-							<figcaption>How the motion of a guitar string effects the voltage output of the pickups. <br>Image Credit: <a href = "http://www.electricalfun.com/WorkbenchFun/basic_electric_guitar_circuits.aspx" target="_blank">www.electricalfun.com</a></figcaption>
-						</figure>
+					Electric guitars process the vibrations of the strings in a very different way to our ears. Guitars don't have a membrane that moves back 
+					and forth in response to the pressure variations in the air, like our eardums. Instead, they 'directly' measure the vibrations in the string.
+					To do this, they take advantage of <a href="http://hyperphysics.phy-astr.gsu.edu/hbase/electric/farlaw.html" target="_blank">
+					Faraday's law of induction</a>, using magnets and coils of wire placed directly below each of the strings.
+					These magnets and coils might sound more familiar if we call them 'pickups', which you can easily see mounted into electric guitar bodies between
+					the bridge and the neck.
+					We'll look at the image below to explain the working principle, but bear in mind that pickups come in many flavours and so your pickups might 
+					not look like the ones in the illustration, but the basic idea is essentially the same for them all. 
+				</p>
+				<p>
+					When something is magnetic, it means that the <a href="https://www.youtube.com/watch?v=hFAOXdXZ5TM" target="_blank">atomic magnets</a> 
+					are all lined up with eachother. A permanent magnet is then a material that is... permanently magnetic... This material can then attract
+					or repel metals with its 'magnetic force', and we can draw the field over which this force is acting with imaginary 'magnetic field lines'.
+					Now if we sit a non-magnetic metal in this field, the magnetic force will cause the atomic magnets in <i>that</i> metal to align, too. This
+					piece of non-magnetic metal has now become a 'temporary magnet', meaning that it now also has a north and south pole as long as it is 
+					sat inside the magnetic field of the permanent magnet.
+				</p>
+				<p>
+					Now lets look at the below diagram. We have a non-magnetic metal (the pole) sat atop a permanent magnet. The pole has become a temporary magnet
+					and so the magnetic field lines (the circular blue paths) that the permanent magnet has created are now extending through the temporary magnet.
+					In some pickups the pole will just be a permanent magnet by itself - <a class="firstPerson">like I said, different flavours.</a> Things start
+					to get a little messy here so just sit tight and we'll try our best.
+				</p>
+				<p>
+					So now we have a slightly bigger magnet, what next? Well you'll also see a wire spiraling up around the pole in the diagram. We call this
+					
+					What you need to know is that <b>as a string vibrates over the pickup, an alternating voltage 
+					is created in the guitar circuitry, and this voltage is an electrical representation of the note you’ve just played</b>. The 
+					voltage is a sinusoidal oscillation with a frequency equal to the frequency of the guitar string vibration, and an amplitude that 
+					relates to how ‘hard’ the string is vibrating [see appendix for detailed explanation – amplitude relates to speed (faraday/lenz) and 
+					if amplitude of vibration is higher, speed of nodes is higher at centre point].
+				</p>
+				<p>
+					Below is an illustration of the basic principle. As the string oscillates back and forth, so too does the voltage induced in the pickups. 
+					A full understanding of this concept is not necessary. It has been presented here for completeness as we paint the picture of what causes 
+					the input to our pedals
 
+					<figure id = "pickupOperation">
+						<img src = "figures/inducedVoltagePickups.jpg" alt = "Basic pickup operation"></img>
+						<figcaption>How the motion of a guitar string effects the voltage output of the pickups. <br>Image Credit: <a href = "http://www.electricalfun.com/WorkbenchFun/basic_electric_guitar_circuits.aspx" target="_blank">www.electricalfun.com</a></figcaption>
+					</figure>
 				</p>
 
 			</div>
